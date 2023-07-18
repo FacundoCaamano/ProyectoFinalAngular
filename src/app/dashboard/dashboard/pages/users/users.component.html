@@ -1,0 +1,13 @@
+
+<div class="d-flex flex-row-reverse botonn">
+    <button class="m-5" mat-flat-button color="accent" (click)="onCreateUser()"> 
+        <mat-icon>add</mat-icon>
+        Create
+    </button>
+</div>
+
+<app-users-table 
+    [dataSource]="users" 
+    (deleteUser)="onDeleteUser($event)"
+    (editUser)="onEditUser($event)"
+    ></app-users-table>

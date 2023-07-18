@@ -1,0 +1,38 @@
+.example-container {
+    width: 100vw;
+    height: 100vh;
+    border: 1px solid #555;
+  }
+ 
+.sidebaar{
+  height: 10vh ; 
+}
+
+.home{
+  height: 89vh;
+  padding: 10px;
+}
+ul{
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 10px;
+}
+a{
+  width: 100%;
+}
+
+.titulo{
+
+  h1{
+    margin: 0;
+  }
+}
+
+.subTitulo{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}

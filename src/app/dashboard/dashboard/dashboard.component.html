@@ -1,0 +1,47 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer [mode]="'over'" #drawer class="example-sidenav" mode="side">
+    <ul>
+      <a mat-raised-button href="">
+        <mat-icon>
+          group
+        </mat-icon>
+        Students
+      </a>
+      <a mat-raised-button href="">
+        <mat-icon>
+          rocket_launch
+        </mat-icon>
+        Coming soon...
+      </a>
+      <a mat-raised-button href="">
+        <mat-icon>
+          rocket_launch
+        </mat-icon>
+        Coming soon...
+      </a>
+      <a mat-raised-button href="">
+        <mat-icon>
+          rocket_launch
+        </mat-icon>
+        Coming soon...
+      </a>
+    </ul>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <mat-toolbar class="sidebaar"  color="primary">
+      <button type="button" mat-button (click)="drawer.toggle() ">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="titulo">
+        <h1 appFonTitle > List of Students </h1>
+      </div>
+    </mat-toolbar>
+    <main class="home">
+      <div class="subTitulo">
+        <h2 appFonTitle>Students</h2>
+      </div>
+      <app-users></app-users> 
+    </main>
+  </div>
+</mat-drawer-container>
