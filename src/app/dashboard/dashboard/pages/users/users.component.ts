@@ -2,18 +2,11 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserFormDalogComponent } from './components/user-form-dalog/user-form-dalog.component';
 import { Users } from './models';
+import { Observable } from 'rxjs';
+import { UserService } from './service/user.service';
 
 
-const ELEMENT_DATA: Users[] = [
-  {
-    id:1,
-    name: 'Lucas',
-    surname:'Spagnoli',
-    courses:'Angular',
-    email:'Lucas123@yahoo.com',
-    password:'123',
-  }
-];
+
 
 @Component({
   selector: 'app-users',
@@ -21,10 +14,15 @@ const ELEMENT_DATA: Users[] = [
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent {
-  public users: Users[]=ELEMENT_DATA
+  public users: Observable<Users[]>
+
   constructor(
-    private matDialog: MatDialog
-  ){}
+    private matDialog: MatDialog,
+    private usersService: UserService
+  ){
+    this.usersService.loadUser()
+    this.users = this.usersService.getUsers()
+  }
   
   onCreateUser():void{
     const dialogRef = this.matDialog.open(UserFormDalogComponent); 
@@ -32,21 +30,15 @@ export class UsersComponent {
     dialogRef.afterClosed().subscribe({ 
       next: (v)=>{
         if(v){
-
-          this.users = [
-            ...this.users,
-            {
-                id: this.users.length + 1,
-                name: v.name,
-                surname: v.surname,
-                courses:v.courses,
-                email: v.email,
-                password: v.password
-            }
-          ]
-           
-        }else{
-
+          this.usersService.createUser({
+            id: new Date().getTime(),
+            name: v.name,
+            surname: v.surname,
+            courses: v.courses,
+            email: v.email,
+            password:v.password
+          })
+          
         }
         
       }
@@ -54,8 +46,8 @@ export class UsersComponent {
   }
 
   onDeleteUser(userToDelete:Users): void{
-    if(confirm(`eliminar ${userToDelete.name}`)){
-      this.users= this.users.filter((u)=> u.id !== userToDelete.id)
+    if(confirm(`¿Está seguro de eliminar a ${userToDelete.name}?`)){
+      this.usersService.deleteById(userToDelete.id)
     }
   }
 
@@ -69,17 +61,8 @@ export class UsersComponent {
     .afterClosed()
     
     .subscribe({
-      next: (v)=>{
-        if(v){
-          this.users = this.users.map(user =>{
-            
-            return user.id === userToEdit.id 
-            ? {...user, ...v}
-            : user
-          })
-        }
-        
-        
+      next: (userUpdated)=>{
+          this.usersService.updateById(userToEdit.id, userUpdated)
       }
     })
     
