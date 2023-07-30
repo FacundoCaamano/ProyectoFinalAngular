@@ -21,4 +21,5 @@ export class UsersTableComponent {
 
   @Output()
   editUser = new EventEmitter<Users>()
+
   }
