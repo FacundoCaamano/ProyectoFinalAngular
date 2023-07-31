@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UsersComponent } from './users.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { UserFormDalogComponent } from './components/user-form-dalog/user-form-dalog.component';
-import { UsersTableComponent } from './components/users-table/users-table.component';
+import { UsersComponent } from './users/users.component';
+import { UserFormDalogComponent } from './users/components/user-form-dalog/user-form-dalog.component';
+import { UsersTableComponent } from './users/components/users-table/users-table.component';
+
 
 
 
