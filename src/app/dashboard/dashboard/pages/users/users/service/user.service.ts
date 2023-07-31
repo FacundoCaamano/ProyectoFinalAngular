@@ -1,16 +1,56 @@
 import { Injectable } from '@angular/core';
 import { Users } from '../models';
-import { BehaviorSubject, Observable, of, take } from 'rxjs';
+import { BehaviorSubject, Observable, map, of, take } from 'rxjs';
 
 
 const USER_DB:Observable<Users[]> = of([
   {
     id:1,
-    name: 'marcos',
-    surname:'rodri',
+    name: 'Marcos',
+    surname:'Narambuena',
     courses:'Angular',
-    email:'rod@ds',
-    password:'dsds',
+    email:'marnar@yahoo.com',
+    password:'123456',
+  },
+  {
+    "id": 2,
+    "name": "Laura",
+    "surname": "González",
+    "courses": "React",
+    "email": "laura@example.com",
+    "password": "abc123"
+  },
+  {
+    "id": 3,
+    "name": "Carlos",
+    "surname": "Martínez",
+    "courses": "Python",
+    "email": "carlos@gmail.com",
+    "password": "qwerty"
+  },
+  {
+    "id": 4,
+    "name": "Ana",
+    "surname": "García",
+    "courses": "Java",
+    "email": "ana.garcia@mail.com",
+    "password": "password123"
+  },
+  {
+    "id": 5,
+    "name": "David",
+    "surname": "López",
+    "courses": "C#",
+    "email": "david.lopez@example.org",
+    "password": "securepass"
+  },
+  {
+    "id": 6,
+    "name": "Julia",
+    "surname": "Pérez",
+    "courses": "Swift",
+    "email": "julia.perez@gmail.com",
+    "password": "mypassword"
   }
 ])
 
@@ -19,10 +59,10 @@ const USER_DB:Observable<Users[]> = of([
 })
 export class UserService {
 
-  private users:Users[]=[]
+
 
   private _users$ = new BehaviorSubject<Users[]>([])
-  private user = this._users$.asObservable()
+  private users$ = this._users$.asObservable()
 
   constructor() { 
 
@@ -35,11 +75,11 @@ export class UserService {
   }
 
   getUsers():Observable<Users[]>{
-    return this._users$
+    return this.users$
   }
 
   createUser(user: Users):void{
-    this._users$.pipe(take(1)).subscribe({
+    this.users$.pipe(take(1)).subscribe({
       next:(arrayActual) =>{
         this._users$.next([...arrayActual,user])
       }
@@ -47,7 +87,7 @@ export class UserService {
   }
 
   updateById(id:number, usuarioActualizado:Users):void{
-    this._users$.pipe(take(1)).subscribe({
+    this.users$.pipe(take(1)).subscribe({
       next:(arrayActual) =>{
         this._users$.next(
           arrayActual.map((u) => u.id === id ? {...u, ...usuarioActualizado} : u)
@@ -57,12 +97,18 @@ export class UserService {
   }
 
   deleteById(id:number):void{
-    this._users$.pipe(take(1)).subscribe({
+    this.users$.pipe(take(1)).subscribe({
       next: (arrayActual) =>{
         this._users$.next(
           arrayActual.filter(u => u.id !== id)
         )
       }
     })
+  }
+
+  getById(id:number):Observable<Users | undefined>{
+    return this.users$.pipe(
+      map((users) => users.find((u) => u.id ===id))
+      )
   }
 }

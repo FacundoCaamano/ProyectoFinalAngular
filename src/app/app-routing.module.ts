@@ -4,6 +4,7 @@ import { DashboardComponent } from "./dashboard/dashboard/dashboard.component";
 import { CoursesComponent } from "./dashboard/dashboard/pages/courses/courses/courses.component";
 import { TeachersComponent } from "./dashboard/dashboard/pages/teachers/teachers/teachers.component";
 import { UsersComponent } from "./dashboard/dashboard/pages/users/users/users.component";
+import { UsersDetailComponent } from "./dashboard/dashboard/pages/users/users/pages/users-detail/users-detail.component";
 
 
 const routes:Routes=[
@@ -21,8 +22,13 @@ const routes:Routes=[
         },
         {
             path:'users',
-            component:UsersComponent
-        }
+            component:UsersComponent,
+            
+        },
+        {
+            path:'users/:id',
+            component: UsersDetailComponent
+        },
        ]
     },
     {

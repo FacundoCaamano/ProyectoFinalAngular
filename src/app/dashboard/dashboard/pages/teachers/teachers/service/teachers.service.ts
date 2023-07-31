@@ -4,10 +4,34 @@ import { Teachers } from '../models';
 
 const TEACHERS_DB:Observable<Array<Teachers>> = of([
   {
-    id: 1,
-    name:'Lucas',
-    surname:'Pavan',
-    course:'Angular'
+    "id": 1,
+    "name":'Lucas',
+    "surname":'Pavan',
+    "course":'Angular'
+  },
+  {
+    "id": 2,
+    "name": "Maria",
+    "surname": "Gomez",
+    "course": "React"
+  },
+  {
+    "id": 3,
+    "name": "Carlos",
+    "surname": "Martinez",
+    "course": "Python"
+  },
+  {
+    "id": 4,
+    "name": "Laura",
+    "surname": "Fernandez",
+    "course": "Java"
+  },
+  {
+    "id": 5,
+    "name": "David",
+    "surname": "Lopez",
+    "course": "C#"
   }
 ])
 

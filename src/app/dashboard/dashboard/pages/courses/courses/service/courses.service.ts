@@ -5,11 +5,42 @@ import { BehaviorSubject, Observable, of, take } from 'rxjs';
 
 const COURSES_DB:Observable<Array<Courses>> =of([
   {
-    id:1,
-    name:'Angular',
-    duration:'3 month',
-    teacher:'jose'
+    "id":1,
+    "name":'Angular',
+    "duration":'3 month',
+    "teacher":'jose'
+  },
+  {
+    "id": 2,
+    "name": "React",
+    "duration": "2 months",
+    "teacher": "Laura"
+  },
+  {
+    "id": 3,
+    "name": "Python",
+    "duration": "4 months",
+    "teacher": "Carlos"
+  },
+  {
+    "id": 4,
+    "name": "Java",
+    "duration": "3 months",
+    "teacher": "Ana"
+  },
+  {
+    "id": 5,
+    "name": "C#",
+    "duration": "2.5 months",
+    "teacher": "David"
+  },
+  {
+    "id": 6,
+    "name": "Swift",
+    "duration": "2 months",
+    "teacher": "Julia"
   }
+  
 ])
 
 
