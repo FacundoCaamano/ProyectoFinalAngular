@@ -1,0 +1,11 @@
+<div class="d-flex flex-row-reverse botonn">
+    <button class="m-5" mat-flat-button color="accent" (click)="onCreateTeacher()"> 
+        <mat-icon>add</mat-icon>
+        Create
+    </button>
+</div>
+<app-teacher-table
+    [dataSource]="(teacher | async) || []"
+    (deleteTeacher)="onDeleteTeacher($event)"
+    (editTeacher)="onEditTeacher($event)"
+></app-teacher-table>

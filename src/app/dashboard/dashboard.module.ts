@@ -6,6 +6,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { SharedModule } from '../shared/shared.module';
 import { UsersModule } from './dashboard/pages/users/users.module';
 import { CoursesModule } from './dashboard/pages/courses/courses.module';
+import { TeachersModule } from './dashboard/pages/teachers/teachers.module';
 
 
 
@@ -23,7 +24,8 @@ import { CoursesModule } from './dashboard/pages/courses/courses.module';
     MatToolbarModule,
     SharedModule,
     UsersModule,
-    CoursesModule
+    CoursesModule,
+    TeachersModule
   ],
   exports:[
     DashboardComponent
