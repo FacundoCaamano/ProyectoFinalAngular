@@ -18,7 +18,7 @@
         <mat-form-field appearance="outline">
             <mat-label>Surname</mat-label>
             <input formControlName="surname" matInput type="text" name="surname">
-            <mat-error *ngFor="let error of emailControl.errors | keyvalue">
+            <mat-error *ngFor="let error of surnameControl.errors | keyvalue">
                 {{error | controlErrorMessage}}
             </mat-error>
         </mat-form-field>
@@ -27,7 +27,7 @@
         <mat-form-field appearance="outline">
             <mat-label>Courses</mat-label>
             <input formControlName="courses" matInput type="text" name="course">
-            <mat-error *ngFor="let error of emailControl.errors | keyvalue">
+            <mat-error *ngFor="let error of coursesControl.errors | keyvalue">
                 {{error | controlErrorMessage}}
             </mat-error>
         </mat-form-field>
@@ -50,7 +50,7 @@
         <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
             <input formControlName="password" matInput type="password" name="password">
-            <mat-error *ngFor="let error of emailControl.errors | keyvalue">
+            <mat-error *ngFor="let error of passwordControl.errors | keyvalue">
                 {{error | controlErrorMessage}}
             </mat-error>
         </mat-form-field>
