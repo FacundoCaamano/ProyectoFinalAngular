@@ -11,29 +11,11 @@ const routes:Routes=[
     {
        path: 'dashboard',
        component: DashboardComponent,
-       children:[
-        {
-            path:'courses',
-            component:CoursesComponent
-        },
-        {
-            path:'teachers',
-            component:TeachersComponent
-        },
-        {
-            path:'users',
-            component:UsersComponent,
-            
-        },
-        {
-            path:'users/:id',
-            component: UsersDetailComponent
-        },
-       ]
+       loadChildren:() => import('./dashboard/dashboard.module').then((m) => m.DashboardModule)
     },
     {
         path:'**',
-        redirectTo:'dashboard'
+        redirectTo:'/dashboard'
     }
 ]
 
