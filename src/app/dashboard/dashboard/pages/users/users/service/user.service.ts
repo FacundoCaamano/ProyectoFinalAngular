@@ -75,6 +75,7 @@ export class UserService {
   }
 
   getById(id:number):Observable<Users | undefined>{
+    this.loadUser()
     return this.users$.pipe(
       map((users) => users.find((u) => u.id ===id))
       )
