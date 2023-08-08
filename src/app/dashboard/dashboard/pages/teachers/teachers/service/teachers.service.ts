@@ -1,39 +1,9 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, take } from 'rxjs';
+import { BehaviorSubject, Observable, map, mergeMap, of, take } from 'rxjs';
 import { Teachers } from '../models';
+import { HttpClient } from '@angular/common/http';
 
-const TEACHERS_DB:Observable<Array<Teachers>> = of([
-  {
-    "id": 1,
-    "name":'Lucas',
-    "surname":'Pavan',
-    "course":'Angular'
-  },
-  {
-    "id": 2,
-    "name": "Maria",
-    "surname": "Gomez",
-    "course": "React"
-  },
-  {
-    "id": 3,
-    "name": "Carlos",
-    "surname": "Martinez",
-    "course": "Python"
-  },
-  {
-    "id": 4,
-    "name": "Laura",
-    "surname": "Fernandez",
-    "course": "Java"
-  },
-  {
-    "id": 5,
-    "name": "David",
-    "surname": "Lopez",
-    "course": "C#"
-  }
-])
+
 
 
 @Injectable({
@@ -44,11 +14,13 @@ export class TeachersService {
   private _teachers$ = new BehaviorSubject<Array<Teachers>>([])
   private teachers$ = this._teachers$.asObservable()
 
-  constructor() { }
+  constructor(private httpClient:HttpClient) { }
 
   loadTeacher(){
-    TEACHERS_DB.subscribe({
-      next: (teachersDb) => {this._teachers$.next(teachersDb)}
+    this.httpClient.get<Array<Teachers>>("http://localhost:3000/teachers").subscribe({
+      next:(response) => {
+        this._teachers$.next(response)
+      }
     })
   }
 
@@ -57,27 +29,39 @@ export class TeachersService {
   }
 
   createTeacher(teacher:Teachers){
-    this._teachers$.pipe(take(1)).subscribe({
-      next:(arrayActual) => this._teachers$.next([...arrayActual, teacher])
-    })
+    this.httpClient.post<Teachers>("http://localhost:3000/teachers", teacher)
+    .pipe(
+      mergeMap((teacherCreate) => this._teachers$.pipe(take(1),
+      map(
+        (arrayActual)=>[...arrayActual, teacher]
+        )))
+    )  
+    .subscribe({ 
+      next:(arrayActualizado)=>{
+        this._teachers$.next(arrayActualizado)
+      }
+  })
   }
 
   deleteTeacher(id:number){
-    this._teachers$.pipe(take(1)).subscribe({
-      next: arrayActual =>{
-        this._teachers$.next(
-          arrayActual.filter(t => id !== t.id)
-        )
+    this.httpClient.delete("http://localhost:3000/teachers/" + id)
+    .pipe(
+      take(1),
+      mergeMap((responseTeacherDelete)=>
+        this._teachers$.pipe(take(1), map((arrayActual) => arrayActual.filter(t => t.id !== id)))
+      )
+      )
+    .subscribe({
+      next:(arrayUpdated)=>{
+        this._teachers$.next(arrayUpdated)
       }
     })
   }
 
   updateTeacher(id: number, teacherUpdated:Teachers){
-    this._teachers$.pipe(take(1)).subscribe({
-      next:(arrayActual) =>{
-        this._teachers$.next(
-          arrayActual.map(t => t.id === id ? { ...t,...teacherUpdated }: t)
-        )
+    this.httpClient.put("http://localhost:3000/teachers/" + id , teacherUpdated).subscribe({
+      next: () =>{
+        this.loadTeacher()
       }
     })
   }

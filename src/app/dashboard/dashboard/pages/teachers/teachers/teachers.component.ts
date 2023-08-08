@@ -29,7 +29,7 @@ export class TeachersComponent {
       next:(v)=>{
         if(v){
           this.teacherService.createTeacher({
-            id:2,
+            id:new Date().getTime(),
             name:v.name,
             surname:v.surname,
             course:v.course,

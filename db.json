@@ -1,0 +1,122 @@
+{
+  "users": [
+    {
+      "name": "Laura",
+      "surname": "González",
+      "courses": "React",
+      "email": "laura@example.com",
+      "password": "abc123",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "Carlos",
+      "surname": "Martínez",
+      "courses": "Python",
+      "email": "carlos@gmail.com",
+      "password": "qwerty"
+    },
+    {
+      "id": 4,
+      "name": "Ana",
+      "surname": "García",
+      "courses": "Java",
+      "email": "ana.garcia@mail.com",
+      "password": "password123"
+    },
+    {
+      "id": 5,
+      "name": "David",
+      "surname": "López",
+      "courses": "C#",
+      "email": "david.lopez@example.org",
+      "password": "securepass"
+    },
+    {
+      "id": 6,
+      "name": "Julia",
+      "surname": "Pérez",
+      "courses": "Swift",
+      "email": "julia.perez@gmail.com",
+      "password": "mypassword"
+    },
+    {
+      "id": 1691534330210,
+      "name": "andres",
+      "surname": "illo",
+      "courses": "play",
+      "email": "juan@masi",
+      "password": "mdb"
+    }
+  ],
+  "teachers": [
+    {
+      "id": 1,
+      "name": "Lucas",
+      "surname": "Pavan",
+      "course": "angular"
+    },
+    {
+      "id": 2,
+      "name": "Maria",
+      "surname": "Gomez",
+      "course": "React"
+    },
+    {
+      "id": 3,
+      "name": "Carlos",
+      "surname": "Martinez",
+      "course": "Python"
+    },
+    {
+      "id": 4,
+      "name": "Laura",
+      "surname": "Fernandez",
+      "course": "Java"
+    },
+    {
+      "id": 5,
+      "name": "David",
+      "surname": "Lopez",
+      "course": "C#"
+    }
+  ],
+  "courses": [
+    {
+      "name": "Angular2",
+      "duration": "3 month",
+      "teacher": "jose",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "React",
+      "duration": "2 months",
+      "teacher": "Laura"
+    },
+    {
+      "id": 3,
+      "name": "Python",
+      "duration": "4 months",
+      "teacher": "Carlos"
+    },
+    {
+      "id": 4,
+      "name": "Java",
+      "duration": "3 months",
+      "teacher": "Ana"
+    },
+    {
+      "id": 5,
+      "name": "C#",
+      "duration": "2.5 months",
+      "teacher": "David"
+    },
+    {
+      "id": 6,
+      "name": "Swift",
+      "duration": "2 months",
+      "teacher": "Julia"
+    }
+  ]
+}

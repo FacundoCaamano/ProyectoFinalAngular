@@ -25,7 +25,7 @@
     </div>
     <div>     
         <mat-form-field appearance="outline">
-            <mat-label>Courses</mat-label>
+            <mat-label>Teacher</mat-label>
             <input formControlName="teacher" matInput type="text" name="teacher">
             <mat-error *ngFor="let error of teacherControl.errors | keyvalue">
                 {{error | controlErrorMessage}}
