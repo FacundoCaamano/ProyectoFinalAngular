@@ -8,15 +8,16 @@
       <button type="button" mat-button (click)="drawer.toggle() ">
         <mat-icon>menu</mat-icon>
       </button>
-      <div class="titulo">
+      <div class="toolBar">
         <h1 appFonTitle > List of Students </h1>
+        <p *ngIf="authUser$ | async; let authUser ">
+          {{ authUser?.name }} {{ authUser?.surname }}
+        </p>
+        
       </div>
     </mat-toolbar>
     <main class="home">
       <router-outlet></router-outlet>
-      <!-- <app-users></app-users> 
-      <app-courses></app-courses>
-      <app-teachers></app-teachers> -->
     </main>
   </div>
 </mat-drawer-container>
