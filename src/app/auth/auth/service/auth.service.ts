@@ -17,10 +17,15 @@ export class AuthService {
 
 
   isAuthenticated(): Observable<boolean> {
-    return this.authUser$.pipe(
-      take(1),
-      map((user) => !!user),
-    );
+    return this.httpClient.get<Array<Users>>('http://localhost:3000/users',{
+      params:{
+        token:localStorage.getItem('token') || ''
+      }
+    }).pipe(
+      map((userResult)=>{
+        return !!userResult.length
+      })
+    )
   }
 
   login(payload: LoginPayload): void {
@@ -32,8 +37,12 @@ export class AuthService {
     }).subscribe({
       next:(response)=>{
         if(response.length){
-          this._authUser$.next(response[0])
+
+          const authUser= response[0]
+
+          this._authUser$.next(authUser)
           this.router.navigate(['/dashboard'])
+          localStorage.setItem('token', authUser.token)
         }else{
           alert('No identificado')
           this._authUser$.next(null)

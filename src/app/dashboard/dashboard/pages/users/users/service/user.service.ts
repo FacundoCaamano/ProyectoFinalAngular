@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Users } from '../models';
+import { CreateUser, Users } from '../models';
 import { BehaviorSubject, Observable, map, mergeMap, of, take } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { generateRandomString } from 'src/app/shared/utils/tokenGenerate';
 
 
 @Injectable({
@@ -29,15 +30,16 @@ export class UserService {
       
     })
     
-
+    
   }
-
+  
   getUsers():Observable<Users[]>{
     return this.users$
   }
-
-  createUser(payload: Users):void{
-    this.httpClient.post<Users>("http://localhost:3000/users", payload)
+  
+  createUser(payload: CreateUser):void{
+    const token = generateRandomString(20)
+    this.httpClient.post<Users>("http://localhost:3000/users", {...payload, token})
       .pipe(
         mergeMap((userCreate) => this._users$.pipe(take(1),
         map(
@@ -80,4 +82,5 @@ export class UserService {
       map((users) => users.find((u) => u.id ===id))
       )
   }
+
 }

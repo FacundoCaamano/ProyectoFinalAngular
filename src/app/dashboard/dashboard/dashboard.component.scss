@@ -16,8 +16,14 @@
 
 .toolBar{
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
+  width: 90%;
+  
+  
   h1{
+    margin: 0;
+  }
+  p{
     margin: 0;
   }
   

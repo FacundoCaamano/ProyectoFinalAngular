@@ -37,7 +37,8 @@ export class UsersComponent {
             surname: v.surname,
             courses: v.courses,
             email: v.email,
-            password:v.password
+            password:v.password,
+            token:""
           })
           
         }

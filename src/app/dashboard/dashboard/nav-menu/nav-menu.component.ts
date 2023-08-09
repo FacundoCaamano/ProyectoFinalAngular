@@ -9,6 +9,7 @@ export class NavMenuComponent {
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute){}
   logout(): void {
-    this.router.navigate(['login'], {})
+    this.router.navigate(['login'])
+    localStorage.setItem('token','')
   }
 }
