@@ -1,4 +1,5 @@
-import { RouterModule, Routes } from "@angular/router";
+import { Router, Routes } from "@angular/router";
+import {RouterModule} from "@angular/router";
 import { NgModule } from "@angular/core";
 import { DashboardComponent } from "./dashboard/dashboard/dashboard.component";
 import { LoginComponent } from "./auth/auth/pages/login/login.component";
@@ -24,7 +25,8 @@ const routes:Routes=[
 ]
 
 @NgModule({
-    imports:[RouterModule.forRoot(routes)],
+    imports:[
+        RouterModule.forRoot(routes)],
     exports:[RouterModule]
 })
 

@@ -7,7 +7,6 @@ import { SharedModule } from '../shared/shared.module';
 import { UsersModule } from './dashboard/pages/users/users.module';
 import { CoursesModule } from './dashboard/pages/courses/courses.module';
 import { TeachersModule } from './dashboard/pages/teachers/teachers.module';
-import { AppRoutingModule } from '../app-routing.module';
 import { NavMenuComponent } from './dashboard/nav-menu/nav-menu.component';
 import { DashboardRoutingMoudle } from './dashboard-routing.module';
 
