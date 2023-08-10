@@ -45,14 +45,13 @@
       "password": "mypassword",
       "token": "2Gj23JKkldsO98gEiUYT"
     }
-    
   ],
   "teachers": [
     {
-      "id": 1,
-      "name": "Lucas",
+      "name": "Lucass",
       "surname": "Pavan",
-      "course": "angular"
+      "course": "angular",
+      "id": 1
     },
     {
       "id": 2,

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Courses } from '../models';
 import { BehaviorSubject, Observable, map, mergeMap, of, take } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/config/environment';
 
 
 const COURSES_DB:Observable<Array<Courses>> =of([
@@ -26,7 +27,7 @@ export class CourseService {
   constructor(private httpClient:HttpClient) { }
 
   loadCourses():void{
-    this.httpClient.get<Array<Courses>>('http://localhost:3000/courses').subscribe({
+    this.httpClient.get<Array<Courses>>(environment.API_URL + '/courses').subscribe({
       next:(response) =>{
         this._courses$.next(response)
       }
@@ -37,7 +38,7 @@ export class CourseService {
   }
 
   createCourse(course: Courses):void{
-    this.httpClient.post("http://localhost:3000/courses", course)
+    this.httpClient.post(environment.API_URL + "/courses", course)
     .pipe(
       mergeMap((courseCreate) => this._courses$.pipe(take(1),
       map(
@@ -53,13 +54,13 @@ export class CourseService {
 
   
   updateById(id:number, courseUpdated:Courses):void{
-     this.httpClient.put("http://localhost:3000/courses/" + id, courseUpdated).subscribe({
+     this.httpClient.put(environment.API_URL + "/courses/" + id, courseUpdated).subscribe({
       next:()=> this.loadCourses()
      })
     }
 
     deleteById(id:number):void{
-      this.httpClient.delete("http://localhost:3000/courses/" + id)
+      this.httpClient.delete(environment.API_URL + "/courses/" + id)
       .pipe(
         mergeMap((responseCourseDelete)=>
           this._courses$.pipe(take(1), map((arrayACtual) => arrayACtual.filter((c) => c.id !== id))

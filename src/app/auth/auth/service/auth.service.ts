@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import { Users } from "src/app/dashboard/dashboard/pages/users/users/models";
 import { LoginPayload } from "../models";
+import { environment } from "src/config/environment";
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -17,7 +18,7 @@ export class AuthService {
 
 
   isAuthenticated(): Observable<boolean> {
-    return this.httpClient.get<Array<Users>>('http://localhost:3000/users',{
+    return this.httpClient.get<Array<Users>>(environment.API_URL + '/users',{
       params:{
         token:localStorage.getItem('token') || ''
       }
@@ -29,7 +30,7 @@ export class AuthService {
   }
 
   login(payload: LoginPayload): void {
-    this.httpClient.get<Array<Users>>('http://localhost:3000/users',{
+    this.httpClient.get<Array<Users>>(environment.API_URL + '/users',{
       params:{
         email:payload.email || '',
         password:payload.password || ''

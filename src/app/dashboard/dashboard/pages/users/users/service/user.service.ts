@@ -3,6 +3,7 @@ import { CreateUser, Users } from '../models';
 import { BehaviorSubject, Observable, map, mergeMap, of, take } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { generateRandomString } from 'src/app/shared/utils/tokenGenerate';
+import { environment } from 'src/config/environment';
 
 
 @Injectable({
@@ -21,7 +22,7 @@ export class UserService {
 
   loadUser():void{
     
-    this.httpClient.get<Array<Users>>("http://localhost:3000/users").subscribe({
+    this.httpClient.get<Array<Users>>(environment.API_URL + "/users").subscribe({
       next:(response) => 
       {
         this._users$.next(response)
@@ -39,7 +40,7 @@ export class UserService {
   
   createUser(payload: CreateUser):void{
     const token = generateRandomString(20)
-    this.httpClient.post<Users>("http://localhost:3000/users", {...payload, token})
+    this.httpClient.post<Users>(environment.API_URL + "/users", {...payload, token})
       .pipe(
         mergeMap((userCreate) => this._users$.pipe(take(1),
         map(
@@ -54,7 +55,7 @@ export class UserService {
   }
 
   updateById(id:number, userUpdated:Users):void{
-    this.httpClient.put("http://localhost:3000/users/"+ id, userUpdated).subscribe({
+    this.httpClient.put(environment.API_URL + "/users/"+ id, userUpdated).subscribe({
       next:(userUpdated) =>{
         this.loadUser()
         
@@ -63,7 +64,7 @@ export class UserService {
   }
 
   deleteById(id:number):void{
-    this.httpClient.delete("http://localhost:3000/users/" + id)
+    this.httpClient.delete(environment.API_URL + "/users/" + id)
     .pipe(
       mergeMap((responseUserDelete)=>
         this._users$.pipe(take(1), map((arrayACtual) => arrayACtual.filter((u) => u.id !== id))

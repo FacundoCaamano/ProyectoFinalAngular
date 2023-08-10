@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map, mergeMap, of, take } from 'rxjs';
 import { Teachers } from '../models';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/config/environment';
 
 
 
@@ -17,7 +18,7 @@ export class TeachersService {
   constructor(private httpClient:HttpClient) { }
 
   loadTeacher(){
-    this.httpClient.get<Array<Teachers>>("http://localhost:3000/teachers").subscribe({
+    this.httpClient.get<Array<Teachers>>(environment.API_URL + "/teachers").subscribe({
       next:(response) => {
         this._teachers$.next(response)
       }
@@ -29,7 +30,7 @@ export class TeachersService {
   }
 
   createTeacher(teacher:Teachers){
-    this.httpClient.post<Teachers>("http://localhost:3000/teachers", teacher)
+    this.httpClient.post<Teachers>(environment.API_URL + "/teachers", teacher)
     .pipe(
       mergeMap((teacherCreate) => this._teachers$.pipe(take(1),
       map(
@@ -44,7 +45,7 @@ export class TeachersService {
   }
 
   deleteTeacher(id:number){
-    this.httpClient.delete("http://localhost:3000/teachers/" + id)
+    this.httpClient.delete(environment.API_URL + "/teachers/" + id)
     .pipe(
       take(1),
       mergeMap((responseTeacherDelete)=>
@@ -59,7 +60,7 @@ export class TeachersService {
   }
 
   updateTeacher(id: number, teacherUpdated:Teachers){
-    this.httpClient.put("http://localhost:3000/teachers/" + id , teacherUpdated).subscribe({
+    this.httpClient.put(environment.API_URL + "/teachers/" + id , teacherUpdated).subscribe({
       next: () =>{
         this.loadTeacher()
       }
