@@ -46,7 +46,6 @@ export class UserFormDalogComponent {
       if(this.data){
         this.nameControl.setValue(this.data.name)
         this.surnameControl.setValue(this.data.surname)
-        this.coursesControl.setValue(this.data.courses)
         this.emailControl.setValue(this.data.email)
         this.passwordControl.setValue(this.data.password)
       }
