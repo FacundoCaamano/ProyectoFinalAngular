@@ -5,14 +5,6 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/config/environment';
 
 
-const COURSES_DB:Observable<Array<Courses>> =of([
-  {
-    "id":1,
-    "name":'Angular',
-    "duration":'3 month',
-    "teacher":'jose'
-  }
-])
 
 
 @Injectable({

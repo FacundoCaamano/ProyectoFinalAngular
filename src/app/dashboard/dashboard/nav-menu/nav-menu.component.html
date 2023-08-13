@@ -1,25 +1,31 @@
 <ul class="nav-bar">
-    <a mat-raised-button routerLink="users">
-      <mat-icon color="primary" >
-        group
-      </mat-icon>
-      Users
-    </a>
-    <a mat-raised-button routerLink="courses">
-      <mat-icon color="primary">
-          auto_stories         
-      </mat-icon>
-      Courses
-    </a>
-    <a mat-raised-button routerLink="teachers">
-      <mat-icon color="primary">
-        groups_2
-      </mat-icon>
-      Teachers
-    </a>
-    <a mat-raised-button (click)="logout()" mat-list-item>Logout
+  <a mat-raised-button routerLink="students">
+    <mat-icon color="primary">
+      contacts
+    </mat-icon>
+    student
+  </a>
+  <a mat-raised-button routerLink="courses">
+    <mat-icon color="primary">
+      auto_stories
+    </mat-icon>
+    Courses
+  </a>
+  <a mat-raised-button routerLink="teachers">
+    <mat-icon color="primary">
+      groups_2
+    </mat-icon>
+    Teachers
+  </a>
+  <a mat-raised-button routerLink="users">
+    <mat-icon color="primary">
+      group
+    </mat-icon>
+    Users
+  </a>
+  <a mat-raised-button (click)="logout()" mat-list-item>Logout
     <mat-icon color="primary">
       logout
     </mat-icon>
   </a>
-  </ul>
+</ul>

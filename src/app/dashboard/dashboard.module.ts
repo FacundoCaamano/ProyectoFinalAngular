@@ -9,6 +9,7 @@ import { CoursesModule } from './dashboard/pages/courses/courses.module';
 import { TeachersModule } from './dashboard/pages/teachers/teachers.module';
 import { NavMenuComponent } from './dashboard/nav-menu/nav-menu.component';
 import { DashboardRoutingMoudle } from './dashboard-routing.module';
+import { StudentsModule } from './dashboard/pages/students/students.module';
 
 
 
@@ -29,6 +30,7 @@ import { DashboardRoutingMoudle } from './dashboard-routing.module';
     UsersModule,
     CoursesModule,
     TeachersModule,
+    StudentsModule,
     DashboardRoutingMoudle
   ],
   exports:[

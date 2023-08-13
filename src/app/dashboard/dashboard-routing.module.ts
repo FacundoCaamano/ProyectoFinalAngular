@@ -4,6 +4,7 @@ import { CoursesComponent } from "./dashboard/pages/courses/courses/courses.comp
 import { TeachersComponent } from "./dashboard/pages/teachers/teachers/teachers.component";
 import { UsersComponent } from "./dashboard/pages/users/users/users.component";
 import { UsersDetailComponent } from "./dashboard/pages/users/users/pages/users-detail/users-detail.component";
+import { StudentsComponent } from "./dashboard/pages/students/students/students.component";
 
 
 @NgModule({
@@ -16,6 +17,10 @@ import { UsersDetailComponent } from "./dashboard/pages/users/users/pages/users-
                     {
                         path:'teachers',
                         component:TeachersComponent
+                    },
+                    {
+                        path:'students',
+                        component:StudentsComponent
                     },
                     {
                         path:'users',

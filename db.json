@@ -114,5 +114,49 @@
       "duration": "2 months",
       "teacher": "Julia"
     }
+  ],
+  "students": [
+    {
+      "name": "martin",
+      "email": "martin123@yahoo.com",
+      "surname": "Prez",
+      "course": "Angular",
+      "id": 1
+    },
+    {
+      "name": "Ana",
+      "email": "anagarcia@outlook.com",
+      "surname": "García",
+      "course": "React",
+      "id": 2
+    },
+    {
+      "name": "John",
+      "email": "smitjh@yahoo.com",
+      "surname": "Smith",
+      "course": "Python",
+      "id": 3
+    },
+    {
+      "name": "Emily",
+      "email": "EmiJon@yahoo.com",
+      "surname": "Johnson",
+      "course": "Java",
+      "id": 4
+    },
+    {
+      "name": "Carlos",
+      "email": "lop@email.com",
+      "surname": "López",
+      "course": "C#",
+      "id": 5
+    },
+    {
+      "name": "Sophia",
+      "email": "sopm@email.com",
+      "surname": "Martinez",
+      "course": "Web Developments",
+      "id": 6
+    }
   ]
 }

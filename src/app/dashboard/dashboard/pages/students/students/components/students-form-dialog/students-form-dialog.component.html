@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>Course</h1>
 <div mat-dialog-content>
 
-    <form [formGroup]="coursesForm">
+    <form [formGroup]="studentForm">
         <div>
             
             <mat-form-field appearance="outline">
@@ -12,20 +12,33 @@
                 </mat-error>
         </mat-form-field>
     </div>
-    <div> 
+    <div>
+        
+        
         <mat-form-field appearance="outline">
-            <mat-label>Duration</mat-label>
-            <input formControlName="duration" matInput type="text" name="duration">
-            <mat-error *ngFor="let error of durationControl.errors | keyvalue">
+            <mat-label>Surname</mat-label>
+            <input formControlName="surname" matInput type="text" name="surname">
+            <mat-error *ngFor="let error of surnameControl.errors | keyvalue">
                 {{error | controlErrorMessage}}
             </mat-error>
         </mat-form-field>
     </div>
     <div>     
         <mat-form-field appearance="outline">
-            <mat-label>Teacher</mat-label>
-            <input formControlName="teacher" matInput type="text" name="teacher">
-            <mat-error *ngFor="let error of teacherControl.errors | keyvalue">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" matInput type="text" name="email">
+            <mat-error *ngFor="let error of emailControl.errors | keyvalue">
+                {{error | controlErrorMessage}}
+            </mat-error>
+        </mat-form-field>
+        <pre>
+        </pre>
+    </div>
+    <div>     
+        <mat-form-field appearance="outline">
+            <mat-label>Course</mat-label>
+            <input formControlName="course" matInput type="text" name="course">
+            <mat-error *ngFor="let error of courseControl.errors | keyvalue">
                 {{error | controlErrorMessage}}
             </mat-error>
         </mat-form-field>

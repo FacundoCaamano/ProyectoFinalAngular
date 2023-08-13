@@ -1,0 +1,17 @@
+<div class="subTitulo">
+    <h2 appFonTitle>Courses</h2>
+  </div>
+<div class="d-flex flex-row-reverse botonn">
+    <button class="m-5" mat-flat-button color="accent" (click)="onCreateStudent()"> 
+        <mat-icon>add</mat-icon>
+        Create
+    </button>
+</div>
+<app-students-table
+[dataSource]="(students | async) || []"
+(deleteStudent)="onDeleteStudent($event)"
+(editStudent)="onEditStudent($event)">
+
+>
+
+</app-students-table>
