@@ -5,6 +5,7 @@ import { StudentService } from './service/studnets.service';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentsFormDialogComponent } from './components/students-form-dialog/students-form-dialog.component';
 
+
 const idRandom = Math.random() * 100
 const idStudent=Math.round(idRandom)
 
@@ -17,9 +18,10 @@ const idStudent=Math.round(idRandom)
 export class StudentsComponent {
   public students: Observable<Array<Student>>
   
+
   constructor(
     private studentsService: StudentService,
-    private matDialog: MatDialog
+    private matDialog: MatDialog,
   ){
     this.studentsService.loadStudents()
     this.students = this.studentsService.getStudents()

@@ -36,13 +36,22 @@
       "token": "2Gj23JKklWssdfgEiUYT"
     },
     {
-      "id": 6,
-      "name": "Julia",
-      "surname": "Pérez",
-      "courses": "Swift",
-      "email": "julia.perez@gmail.com",
-      "password": "mypassword",
-      "token": "2Gj23JKkldsO98gEiUYT"
+      "id": 7,
+      "name": "Alex",
+      "surname": "Miller",
+      "courses": "Python",
+      "email": "alex@example.com",
+      "password": "alexpass",
+      "token": "2Gj23JKkldsadfgEiZZZ"
+    },
+    {
+      "id": 8,
+      "name": "Elena",
+      "surname": "Lopez",
+      "courses": "React",
+      "email": "elena@mail.com",
+      "password": "elenapassword",
+      "token": "2Gj23JKkldsadfgEiYYY"
     }
   ],
   "teachers": [
@@ -71,10 +80,16 @@
       "course": "Java"
     },
     {
-      "id": 5,
-      "name": "David",
-      "surname": "Lopez",
-      "course": "C#"
+      "id": 6,
+      "name": "Paul",
+      "surname": "Mitchell",
+      "course": "Angular"
+    },
+    {
+      "id": 7,
+      "name": "Sophie",
+      "surname": "Davis",
+      "course": "Python"
     }
   ],
   "courses": [
@@ -113,16 +128,27 @@
       "name": "Swift",
       "duration": "2 months",
       "teacher": "Julia"
+    },
+    {
+      "id": 66,
+      "name": "Backend",
+      "duration": "6 months",
+      "teacher": "Josue"
+    },
+    {
+      "id": 8,
+      "name": "Web Design",
+      "duration": "2 months",
+      "teacher": "Eva"
+    },
+    {
+      "id": 9,
+      "name": "Database Management",
+      "duration": "3 months",
+      "teacher": "Robert"
     }
   ],
   "students": [
-    {
-      "name": "martin",
-      "email": "martin123@yahoo.com",
-      "surname": "Prez",
-      "course": "Angular",
-      "id": 1
-    },
     {
       "name": "Ana",
       "email": "anagarcia@outlook.com",
@@ -157,6 +183,20 @@
       "surname": "Martinez",
       "course": "Web Developments",
       "id": 6
+    },
+    {
+      "name": "Jessica",
+      "email": "jessica@example.com",
+      "surname": "Smith",
+      "course": "Java",
+      "id": 7
+    },
+    {
+      "name": "Kevin",
+      "email": "kevin@gmail.com",
+      "surname": "Johnson",
+      "course": "Python",
+      "id": 8
     }
   ]
 }
