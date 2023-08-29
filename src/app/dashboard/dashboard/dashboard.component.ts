@@ -4,6 +4,8 @@ import {MatDrawer, MatDrawerMode, MatSidenavModule} from '@angular/material/side
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth/service/auth.service';
 import { Users } from './pages/users/users/models';
+import { Store } from '@ngrx/store';
+import { selectAuthUser } from 'src/app/store/auth/auth.selectors';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,7 +23,7 @@ export class DashboardComponent {
 
   public authUser$: Observable<Users | null>;
 
-  constructor(private authService: AuthService) {
-    this.authUser$ = this.authService.authUser$;
+  constructor(private authService: AuthService , private store:Store) {
+    this.authUser$ = this.store.select(selectAuthUser)
   }
 }

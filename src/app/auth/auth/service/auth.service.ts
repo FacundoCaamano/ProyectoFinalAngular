@@ -5,15 +5,17 @@ import { HttpClient } from "@angular/common/http";
 import { Users } from "src/app/dashboard/dashboard/pages/users/users/models";
 import { LoginPayload } from "../models";
 import { environment } from "src/config/environment";
+import { Store } from "@ngrx/store";
+import { AuthActions } from "src/app/store/auth/auth.actions";
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private _authUser$ = new BehaviorSubject<Users | null>(null);
-  public authUser$ = this._authUser$.asObservable();
+  
 
   constructor(
      private router: Router,
-     private httpClient:HttpClient
+     private httpClient:HttpClient,
+     private store:Store
      ) {}
 
 
@@ -24,6 +26,11 @@ export class AuthService {
       }
     }).pipe(
       map((userResult)=>{
+        if(userResult.length){
+          const authUser = userResult[0]
+          this.store.dispatch(AuthActions.setAuthUser({data: authUser}))
+          
+        }
         return !!userResult.length
       })
     )
@@ -41,14 +48,20 @@ export class AuthService {
 
           const authUser= response[0]
 
-          this._authUser$.next(authUser)
+          
+          this.store.dispatch(AuthActions.setAuthUser({data: authUser}))
           this.router.navigate(['/dashboard'])
           localStorage.setItem('token', authUser.token)
         }else{
           alert('No identificado')
-          this._authUser$.next(null)
+          
         }
       }
     })
   }
+
+  logout():void{
+    this.store.dispatch(AuthActions.setAuthUser({data:null}))
+  }
+
 }

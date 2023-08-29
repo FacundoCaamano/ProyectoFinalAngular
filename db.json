@@ -190,13 +190,6 @@
       "surname": "Smith",
       "course": "Java",
       "id": 7
-    },
-    {
-      "name": "Kevin",
-      "email": "kevin@gmail.com",
-      "surname": "Johnson",
-      "course": "Python",
-      "id": 8
     }
   ]
 }
