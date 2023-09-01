@@ -61,4 +61,8 @@ export class StudentService{
         })
       }
 
+    getInscriptionStudent(course:string):Observable<Array<Student>>{
+      return this.httpClient.get<Array<Student>>(environment.API_URL + `/students?course=${course}`)
+    }  
+
 }

@@ -153,43 +153,71 @@
       "name": "Ana",
       "email": "anagarcia@outlook.com",
       "surname": "García",
-      "course": "React",
-      "id": 2
+      "course": "Angular",
+      "id": 2,
+      "inscriptionId":1
     },
     {
       "name": "John",
       "email": "smitjh@yahoo.com",
       "surname": "Smith",
-      "course": "Python",
-      "id": 3
+      "course": "Angular",
+      "id": 3,
+      "inscriptionId":1
     },
     {
       "name": "Emily",
       "email": "EmiJon@yahoo.com",
       "surname": "Johnson",
       "course": "Java",
-      "id": 4
+      "id": 4,
+      "inscriptionId":1
     },
     {
       "name": "Carlos",
       "email": "lop@email.com",
       "surname": "López",
-      "course": "C#",
-      "id": 5
+      "course": "Angular",
+      "id": 5,
+      "inscriptionId":1
     },
     {
       "name": "Sophia",
       "email": "sopm@email.com",
       "surname": "Martinez",
-      "course": "Web Developments",
-      "id": 6
+      "course": "PHP",
+      "id": 6,
+      "inscriptionId":1
     },
     {
       "name": "Jessica",
       "email": "jessica@example.com",
       "surname": "Smith",
       "course": "Java",
-      "id": 7
+      "id": 7,
+      "inscriptionId":1
+    }
+  ],
+  "inscriptions":[ 
+    {
+      "id": 1,
+      "name": "Angular"
+    },
+    {
+      "id": 2,
+      "name": "curso2"
+    },
+    {
+      "id": 3,
+      "name": "curso3"
+    },
+    {
+      "id": 3,
+      "name": "Java"
+    },
+    {
+      "id": 3,
+      "name": "PHP"
     }
   ]
 }

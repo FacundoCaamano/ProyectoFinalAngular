@@ -5,6 +5,8 @@ import { TeachersComponent } from "./dashboard/pages/teachers/teachers/teachers.
 import { UsersComponent } from "./dashboard/pages/users/users/users.component";
 import { UsersDetailComponent } from "./dashboard/pages/users/users/pages/users-detail/users-detail.component";
 import { StudentsComponent } from "./dashboard/pages/students/students/students.component";
+import { InscriptionsComponent } from "./dashboard/pages/inscriptions/inscriptions/inscriptions.component";
+import { InscriptionsDetailComponent } from "./dashboard/pages/inscriptions/inscriptions/pages/inscriptions-detail/inscriptions-detail.component";
 
 
 @NgModule({
@@ -17,6 +19,14 @@ import { StudentsComponent } from "./dashboard/pages/students/students/students.
                     {
                         path:'teachers',
                         component:TeachersComponent
+                    },
+                    {
+                        path:'inscriptions',
+                        component:InscriptionsComponent
+                    },
+                    {
+                        path:'inscriptions/:name',
+                        component:InscriptionsDetailComponent
                     },
                     {
                         path:'students',
