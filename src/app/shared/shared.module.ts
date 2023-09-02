@@ -11,6 +11,7 @@ import {MatTableModule} from '@angular/material/table';
 import { FullNamePipe } from './pipes/full-name.pipe';
 import { ControlErrorMessagePipe } from './pipes/control-error-message.pipe';
 import { FonTitleDirective } from './directives/fon-title.directive';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -34,6 +35,7 @@ import { FonTitleDirective } from './directives/fon-title.directive';
    MatInputModule,
    MatTableModule,
    FullNamePipe,
+   MatSelectModule,
    ControlErrorMessagePipe,
    FonTitleDirective
   ]

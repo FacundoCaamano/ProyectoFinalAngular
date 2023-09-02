@@ -4,54 +4,27 @@
       "id": 2,
       "name": "Laura",
       "surname": "González",
-      "courses": "React",
       "email": "laura@example.com",
       "password": "abc123",
-      "token": "2Gj23JKkldsadfgEiUYT"
+      "token": "2Gj23JKkldsadfgEiUYT",
+      "role": "ADMIN"
     },
     {
+      "id": 3,
       "name": "Carlosaaa",
       "surname": "Martínez",
-      "courses": "Python",
       "email": "carlos@gmail.com",
       "password": "qwerty",
-      "id": 3
+      "role": "USER"
     },
     {
       "id": 4,
       "name": "Ana",
       "surname": "García",
-      "courses": "Java",
       "email": "ana.garcia@mail.com",
       "password": "password123",
-      "token": "2Gj23JKkldsadfgEiIII"
-    },
-    {
-      "id": 5,
-      "name": "David",
-      "surname": "López",
-      "courses": "C#",
-      "email": "david.lopez@example.org",
-      "password": "securepass",
-      "token": "2Gj23JKklWssdfgEiUYT"
-    },
-    {
-      "id": 7,
-      "name": "Alex",
-      "surname": "Miller",
-      "courses": "Python",
-      "email": "alex@example.com",
-      "password": "alexpass",
-      "token": "2Gj23JKkldsadfgEiZZZ"
-    },
-    {
-      "id": 8,
-      "name": "Elena",
-      "surname": "Lopez",
-      "courses": "React",
-      "email": "elena@mail.com",
-      "password": "elenapassword",
-      "token": "2Gj23JKkldsadfgEiYYY"
+      "token": "2Gj23JKkldsadfgEiIII",
+      "role": "USER"
     }
   ],
   "teachers": [
@@ -90,6 +63,12 @@
       "name": "Sophie",
       "surname": "Davis",
       "course": "Python"
+    },
+    {
+      "id": 1693619653759,
+      "name": "sasa",
+      "surname": "saas",
+      "course": "saas"
     }
   ],
   "courses": [
@@ -155,7 +134,7 @@
       "surname": "García",
       "course": "Angular",
       "id": 2,
-      "inscriptionId":1
+      "inscriptionId": 1
     },
     {
       "name": "John",
@@ -163,7 +142,7 @@
       "surname": "Smith",
       "course": "Angular",
       "id": 3,
-      "inscriptionId":1
+      "inscriptionId": 1
     },
     {
       "name": "Emily",
@@ -171,7 +150,7 @@
       "surname": "Johnson",
       "course": "Java",
       "id": 4,
-      "inscriptionId":1
+      "inscriptionId": 1
     },
     {
       "name": "Carlos",
@@ -179,7 +158,7 @@
       "surname": "López",
       "course": "Angular",
       "id": 5,
-      "inscriptionId":1
+      "inscriptionId": 1
     },
     {
       "name": "Sophia",
@@ -187,7 +166,7 @@
       "surname": "Martinez",
       "course": "PHP",
       "id": 6,
-      "inscriptionId":1
+      "inscriptionId": 1
     },
     {
       "name": "Jessica",
@@ -195,10 +174,10 @@
       "surname": "Smith",
       "course": "Java",
       "id": 7,
-      "inscriptionId":1
+      "inscriptionId": 1
     }
   ],
-  "inscriptions":[ 
+  "inscriptions": [
     {
       "id": 1,
       "name": "Angular"

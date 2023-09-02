@@ -54,7 +54,10 @@ export class TeachersComponent {
     .afterClosed()
     .subscribe({
       next: teacherUpdated =>{
-        this.teacherService.updateTeacher(teacherEdit.id, teacherUpdated)
+        if(teacherUpdated){
+
+          this.teacherService.updateTeacher(teacherEdit.id, teacherUpdated)
+        }
       }
     })
   }

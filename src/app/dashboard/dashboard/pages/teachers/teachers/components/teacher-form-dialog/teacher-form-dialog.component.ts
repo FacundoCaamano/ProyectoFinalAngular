@@ -9,6 +9,7 @@ import { Teachers } from '../../models';
   styleUrls: ['./teacher-form-dialog.component.scss']
 })
 export class TeacherFormDialogComponent {
+  editingTeacher?:Teachers
   nameControl = new FormControl<string|null>(null, Validators.required)
   surnameControl = new FormControl<string|null>(null, Validators.required)
   courseControl = new FormControl<string|null>(null, Validators.required)
@@ -26,6 +27,7 @@ export class TeacherFormDialogComponent {
     @Inject(MAT_DIALOG_DATA) private data?:Teachers
   ){
     if(this.data){
+      this.editingTeacher = this.data
       this.nameControl.setValue(this.data.name)
       this.surnameControl.setValue(this.data.surname)
       this.courseControl.setValue(this.data.course)

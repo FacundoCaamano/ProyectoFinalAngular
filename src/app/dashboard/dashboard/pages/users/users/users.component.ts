@@ -35,10 +35,10 @@ export class UsersComponent {
             id: new Date().getTime(),
             name: v.name,
             surname: v.surname,
-            courses: v.courses,
             email: v.email,
+            token:"",
             password:v.password,
-            token:""
+            role:v.role,
           })
           
         }
@@ -64,7 +64,10 @@ export class UsersComponent {
     
     .subscribe({
       next: (userUpdated)=>{
+        if(userUpdated){
+
           this.usersService.updateById(userToEdit.id, userUpdated)
+        }
       }
     })
     

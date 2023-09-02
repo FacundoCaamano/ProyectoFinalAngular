@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CreateUser, Users } from '../models';
+import { CreateUser, UpdateUserData, Users } from '../models';
 import { BehaviorSubject, Observable, map, mergeMap, of, take } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { generateRandomString } from 'src/app/shared/utils/tokenGenerate';
@@ -38,11 +38,11 @@ export class UserService {
     return this.users$
   }
   
-  createUser(payload: CreateUser):void{
+  createUser(payload: Users):void{
     const token = generateRandomString(20)
     this.httpClient.post<Users>(environment.API_URL + "/users", {...payload, token})
       .pipe(
-        mergeMap((userCreate) => this._users$.pipe(take(1),
+        mergeMap((userCreate) => this.users$.pipe(take(1),
         map(
           (arrayActual)=>[...arrayActual, payload]
           )))
@@ -54,9 +54,9 @@ export class UserService {
     })
   }
 
-  updateById(id:number, userUpdated:Users):void{
+  updateById(id:number, userUpdated:UpdateUserData):void{
     this.httpClient.put(environment.API_URL + "/users/"+ id, userUpdated).subscribe({
-      next:(userUpdated) =>{
+      next:() =>{
         this.loadUser()
         
       }

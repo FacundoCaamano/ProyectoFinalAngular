@@ -11,6 +11,7 @@ import { Users } from '../../models';
   styleUrls: ['./user-form-dalog.component.scss']
 })
 export class UserFormDalogComponent {
+  editingUser?:Users
   nameControl = new FormControl<string | null>(null, [
     Validators.required,
     Validators.minLength(2),
@@ -18,9 +19,11 @@ export class UserFormDalogComponent {
 
   surnameControl = new FormControl<string | null>(null, 
     Validators.required
-)
+    )
 
-  coursesControl = new FormControl<string | null>(null, Validators.required)
+  coursesControl = new FormControl<string | null>(null,
+    Validators.required
+    )
 
   emailControl = new FormControl<string | null>(null, [
     Validators.email,
@@ -31,12 +34,17 @@ export class UserFormDalogComponent {
     Validators.required
   ])
 
+  roleControl = new FormControl<string | null>(null, [
+    Validators.required
+  ])
+
   usersForm = new FormGroup({
     name: this.nameControl,
     surname: this.surnameControl,
     courses: this.coursesControl,
     email: this.emailControl,
-    password: this.passwordControl
+    password: this.passwordControl,
+    rol: this.roleControl
 
   })
 
@@ -44,10 +52,12 @@ export class UserFormDalogComponent {
     @Inject(MAT_DIALOG_DATA) private data?: Users,
     ){
       if(this.data){
+        this.editingUser = this.data
         this.nameControl.setValue(this.data.name)
         this.surnameControl.setValue(this.data.surname)
         this.emailControl.setValue(this.data.email)
         this.passwordControl.setValue(this.data.password)
+        this.roleControl.setValue(this.data.role)
       }
       
   }

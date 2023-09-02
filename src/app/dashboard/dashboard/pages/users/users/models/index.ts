@@ -4,15 +4,24 @@ export interface Users{
     surname: string,
     email: string,
     password: string,
-    token:string
+    token:string,
+    role: string,
 }
 
 export interface CreateUser{
     id:number,
     name: string,
     surname: string,
-    courses: string,
     email: string,
     password: string,
-    token:string
+    token:string,
+    role: string,
 }
+
+export interface UpdateUserData {
+    name?: string;
+    surname?: string;
+    email?: string;
+    password?: string;
+    role?: string,
+  }

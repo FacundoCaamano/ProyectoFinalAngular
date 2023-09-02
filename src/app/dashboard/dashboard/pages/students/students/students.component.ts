@@ -60,7 +60,10 @@ export class StudentsComponent {
   
     .subscribe({
      next:(studentUpdated)=>{
-      this.studentsService.updateById(studentToEdit.id,studentUpdated)
+      if(studentUpdated){
+
+        this.studentsService.updateById(studentToEdit.id,studentUpdated)
+      }
      }
     })
   }

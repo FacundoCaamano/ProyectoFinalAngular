@@ -58,7 +58,10 @@ export class CoursesComponent {
   
     .subscribe({
      next:(courseUpdated)=>{
-      this.coursesService.updateById(courseToEdit.id,courseUpdated)
+      if(courseUpdated){
+
+        this.coursesService.updateById(courseToEdit.id,courseUpdated)
+      }
      }
     })
   }
