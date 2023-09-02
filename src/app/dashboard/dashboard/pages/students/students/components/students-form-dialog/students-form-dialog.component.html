@@ -36,11 +36,12 @@
     </div>
     <mat-form-field appearance="outline">
         <mat-label>Course</mat-label>
-        <mat-select formControlName="course">
+        <mat-select formControlName="course" >
           <p mat-dialog-title>Available courses"</p>
-          <mat-option  *ngFor="let course of course$ | async" [value]="course.name">
-            {{ course.name }}
-        </mat-option>
+          <mat-option *ngFor="let course of course$ | async" [value]="course.name">
+              {{ course.name }}
+            </mat-option>
+            <mat-option [value]="'unregistered'">unregistered</mat-option>
         </mat-select>
         <mat-error *ngIf="courseControl.hasError('required')">
             Course is required.
@@ -48,7 +49,11 @@
       </mat-form-field>
     <div mat-dialog-actions>
         <button mat-button (click)="onSubmit()">
-            Create
+            {{
+                editingUser
+                  ? "Save "
+                  : "Create"
+              }}
         </button>
         <button type="reset" mat-button>
             Delete
