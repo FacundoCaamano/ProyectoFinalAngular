@@ -10,14 +10,6 @@
       "role": "ADMIN"
     },
     {
-      "id": 3,
-      "name": "Carlosaaa",
-      "surname": "Martínez",
-      "email": "carlos@gmail.com",
-      "password": "qwerty",
-      "role": "USER"
-    },
-    {
       "id": 4,
       "name": "Ana",
       "surname": "García",
@@ -25,6 +17,24 @@
       "password": "password123",
       "token": "2Gj23JKkldsadfgEiIII",
       "role": "USER"
+    },
+    {
+      "name": "Facundo",
+      "surname": "Gabriel",
+      "email": "fgcc@gmail.com",
+      "password": "asasdasdasd",
+      "role": "ADMIN",
+      "token": "9yEPYEQOHNXQE1SxoplO",
+      "id": 5
+    },
+    {
+      "name": "asasas",
+      "surname": "saasas",
+      "email": "saas@saas",
+      "password": "sasasa",
+      "role": "USER",
+      "token": "RaY3n35LyXbOO3nM8vqK",
+      "id": 6
     }
   ],
   "teachers": [

@@ -26,19 +26,19 @@ export class UsersComponent {
   }
   
   onCreateUser():void{
-    const dialogRef = this.matDialog.open(UserFormDalogComponent); 
+    console.log('click');
+    
+    this.matDialog.open(UserFormDalogComponent)
 
-    dialogRef.afterClosed().subscribe({ 
+    .afterClosed().subscribe({ 
       next: (v)=>{
         if(v){
           this.usersService.createUser({
-            id: new Date().getTime(),
             name: v.name,
             surname: v.surname,
             email: v.email,
-            token:"",
             password:v.password,
-            role:v.role,
+            role:v.role
           })
           
         }

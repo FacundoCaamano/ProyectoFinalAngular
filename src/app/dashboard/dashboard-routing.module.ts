@@ -7,6 +7,7 @@ import { UsersDetailComponent } from "./dashboard/pages/users/users/pages/users-
 import { StudentsComponent } from "./dashboard/pages/students/students/students.component";
 import { InscriptionsComponent } from "./dashboard/pages/inscriptions/inscriptions/inscriptions.component";
 import { InscriptionsDetailComponent } from "./dashboard/pages/inscriptions/inscriptions/pages/inscriptions-detail/inscriptions-detail.component";
+import { adminGuard } from "../core/guards/admin.guard";
 
 
 @NgModule({
@@ -34,11 +35,13 @@ import { InscriptionsDetailComponent } from "./dashboard/pages/inscriptions/insc
                     },
                     {
                         path:'users',
+                        canActivate:[adminGuard],
                         component:UsersComponent,
                         
                     },
                     {
                         path:'users/:id',
+                        canActivate:[adminGuard],
                         component: UsersDetailComponent
                     },
         ])

@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { CourseService } from './service/courses.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CoursesFormDialogComponent } from './components/courses-form-dialog/courses-form-dialog.component';
+import { Store } from '@ngrx/store';
+import { selectAdmin } from 'src/app/store/auth/auth.selectors';
 
 const idRandom = Math.random() * 100
 const idCourse=Math.round(idRandom)
@@ -16,14 +18,16 @@ const idCourse=Math.round(idRandom)
 export class CoursesComponent {
 
   public courses: Observable<Array<Courses>>
+  public isAdmin:Observable<boolean>
   
   constructor(
     private coursesService: CourseService,
-    private matDialog: MatDialog
+    private matDialog: MatDialog,
+    private store:Store
   ){
     this.coursesService.loadCourses()
     this.courses = this.coursesService.getCourses()
-    
+    this.isAdmin=store.select(selectAdmin)
     
   }
 

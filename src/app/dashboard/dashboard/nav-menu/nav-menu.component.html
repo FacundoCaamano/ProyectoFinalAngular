@@ -23,7 +23,7 @@
     </mat-icon>
     Inscriptions
   </a>
-  <a mat-raised-button routerLink="users">
+  <a *ngIf="selectAdmin$ | async" mat-raised-button routerLink="users">
     <mat-icon color="primary">
       group
     </mat-icon>

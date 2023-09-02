@@ -37,7 +37,8 @@ import { MatSelectModule } from '@angular/material/select';
    FullNamePipe,
    MatSelectModule,
    ControlErrorMessagePipe,
-   FonTitleDirective
+   FonTitleDirective,
+   MatSelectModule
   ]
 })
 export class SharedModule { }

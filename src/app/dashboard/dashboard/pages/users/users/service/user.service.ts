@@ -38,14 +38,16 @@ export class UserService {
     return this.users$
   }
   
-  createUser(payload: Users):void{
+  createUser(payload: CreateUser):void{
     const token = generateRandomString(20)
     this.httpClient.post<Users>(environment.API_URL + "/users", {...payload, token})
       .pipe(
-        mergeMap((userCreate) => this.users$.pipe(take(1),
+        mergeMap((userCreate) => this.users$.pipe(
+        take(1),
         map(
-          (arrayActual)=>[...arrayActual, payload]
-          )))
+          (arrayActual)=>[...arrayActual, userCreate])
+          )
+          )
       )  
       .subscribe({ 
         next:(arrayActualizado)=>{

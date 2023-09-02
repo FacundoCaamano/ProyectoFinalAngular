@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Courses } from '../../models';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { selectAdmin } from 'src/app/store/auth/auth.selectors';
 
 @Component({
   selector: 'app-courses-table',
@@ -8,6 +11,7 @@ import { Courses } from '../../models';
 })
 export class CoursesTableComponent {
   displayedColumns: String[] = ['id','name','duration','teacher','actions']
+  public isAdmin:Observable<boolean>
 
   @Input()dataSource: Array<Courses> = [];
 
@@ -16,4 +20,7 @@ export class CoursesTableComponent {
 
   @Output()
   editCourse = new EventEmitter<Courses>()
+  constructor( private store:Store){
+    this.isAdmin=store.select(selectAdmin)
+  }
 }

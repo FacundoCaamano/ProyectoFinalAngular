@@ -3,18 +3,16 @@ export interface Users{
     name: string,
     surname: string,
     email: string,
-    password: string,
+    password:string,
     token:string,
-    role: string,
+    role:string,
 }
 
 export interface CreateUser{
-    id:number,
     name: string,
     surname: string,
     email: string,
     password: string,
-    token:string,
     role: string,
 }
 

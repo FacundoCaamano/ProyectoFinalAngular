@@ -21,30 +21,25 @@ export class UserFormDalogComponent {
     Validators.required
     )
 
-  coursesControl = new FormControl<string | null>(null,
-    Validators.required
-    )
-
   emailControl = new FormControl<string | null>(null, [
     Validators.email,
     Validators.required
   ])
 
-  passwordControl = new FormControl<string | null>(null, [
+  passwordControl = new FormControl<string | null>(null, 
     Validators.required
-  ])
+  )
 
-  roleControl = new FormControl<string | null>(null, [
+  roleControl = new FormControl<string | null>(null, 
     Validators.required
-  ])
+  )
 
   usersForm = new FormGroup({
     name: this.nameControl,
     surname: this.surnameControl,
-    courses: this.coursesControl,
     email: this.emailControl,
     password: this.passwordControl,
-    rol: this.roleControl
+    role: this.roleControl
 
   })
 
@@ -61,14 +56,21 @@ export class UserFormDalogComponent {
       }
       
   }
-
   onSubmit(): void {
     if(this.usersForm.invalid){
       this.usersForm.markAllAsTouched();
-    }else{
+    }else
+      {
 
-      alert('Updated information')
-      this.diaLogRef.close(this.usersForm.value)
-    }
+        const  payload:any ={
+          ...this.usersForm.value 
+        }
+        if(this.editingUser){
+          payload['token'] = this.editingUser.token
+        }
+        alert('Updated information')
+        this.diaLogRef.close(payload)
+      }
+    
   } 
 }
