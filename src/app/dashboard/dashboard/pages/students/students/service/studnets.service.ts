@@ -8,8 +8,8 @@ import { environment } from "src/config/environment";
 })
 
 export class StudentService{
-    private _student$ = new BehaviorSubject<Array<Student>>([])
-    private student$ = this._student$.asObservable()
+    public _student$ = new BehaviorSubject<Array<Student>>([])
+    public student$ = this._student$.asObservable()
 
     constructor(private httpClient:HttpClient){}
 

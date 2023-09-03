@@ -7,3 +7,7 @@ export const selectInscriptionState = createFeatureSelector<fromInscription.Stat
 
 
 export const selectInscription = createSelector(selectInscriptionState, (state)=>state.data)
+
+export const selectStudentsOptions = createSelector(selectInscriptionState, (state) => state.studentsOptions)
+
+export const selectCourseOptions = createSelector(selectInscriptionState, (state) => state.coursesOptions)

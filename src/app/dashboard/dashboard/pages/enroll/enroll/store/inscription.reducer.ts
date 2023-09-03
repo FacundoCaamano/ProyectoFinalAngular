@@ -1,11 +1,15 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 import { InscriptionActions } from './inscription.actions';
 import { InscriptionStudentCourse } from '../models';
+import { Student } from '../../../students/students/models';
+import { Courses } from '../../../courses/courses/models';
 
 export const inscriptionFeatureKey = 'inscription';
 
 export interface State {
   data: Array<InscriptionStudentCourse>,
+  studentsOptions:Array<Student>,
+  coursesOptions:Array<Courses>,
   loading:boolean,
   error:unknown,
 }
@@ -13,7 +17,9 @@ export interface State {
 export const initialState: State = {
   data:[],
   loading:false,
-  error:null
+  error:null,
+  studentsOptions:[],
+  coursesOptions:[],
 };
 
 export const reducer = createReducer(
@@ -41,6 +47,22 @@ export const reducer = createReducer(
       error:action.error,
       loading:false
     }}),
+
+  on(InscriptionActions.loadStudentsOptions,(state)=>state),
+  on(InscriptionActions.loadStudentsOptionsSuccess,(state, action)=> {
+    return {
+      ...state,
+      studentsOptions:action.data
+    }
+  }) ,
+  
+  on(InscriptionActions.loadCourseOptions,(state)=>state),
+  on(InscriptionActions.loadCourseOptionsSuccess,(state, action)=> {
+    return {
+      ...state,
+      coursesOptions :action.data
+    }
+  })  
 );
 
 export const inscriptionFeature = createFeature({
