@@ -11,6 +11,8 @@ import { NavMenuComponent } from './dashboard/nav-menu/nav-menu.component';
 import { DashboardRoutingMoudle } from './dashboard-routing.module';
 import { StudentsModule } from './dashboard/pages/students/students.module';
 import { InscriptionsModule } from './dashboard/pages/inscriptions/inscriptions.module';
+import { EnrollModule } from './dashboard/pages/enroll/enroll.module';
+
 
 
 
@@ -33,6 +35,7 @@ import { InscriptionsModule } from './dashboard/pages/inscriptions/inscriptions.
     TeachersModule,
     StudentsModule,
     InscriptionsModule,
+    EnrollModule,
     DashboardRoutingMoudle
   ],
   exports:[

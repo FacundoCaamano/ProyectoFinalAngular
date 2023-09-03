@@ -211,5 +211,13 @@
       "id": 3,
       "name": "PHP"
     }
+  ],
+  "inscription":[
+    {
+      "id":1,
+      "courseId":2,
+      "studentId": 53
+      
+    }
   ]
 }

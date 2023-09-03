@@ -8,6 +8,7 @@ import { StudentsComponent } from "./dashboard/pages/students/students/students.
 import { InscriptionsComponent } from "./dashboard/pages/inscriptions/inscriptions/inscriptions.component";
 import { InscriptionsDetailComponent } from "./dashboard/pages/inscriptions/inscriptions/pages/inscriptions-detail/inscriptions-detail.component";
 import { adminGuard } from "../core/guards/admin.guard";
+import { EnrollComponent } from "./dashboard/pages/enroll/enroll/enroll.component";
 
 
 @NgModule({
@@ -28,6 +29,10 @@ import { adminGuard } from "../core/guards/admin.guard";
                     {
                         path:'inscriptions/:name',
                         component:InscriptionsDetailComponent
+                    },
+                    {
+                        path:'enroll',
+                        component:EnrollComponent
                     },
                     {
                         path:'students',

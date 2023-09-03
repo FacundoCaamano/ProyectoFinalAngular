@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Form</h1>
+<div mat-dialog-content>
+    <form>
+        <mat-form-field>
+            <mat-label>Select Student</mat-label>
+            <mat-select [formControl]="studentIdControl"></mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Select Course</mat-label>
+            <mat-select [formControl]="courseIdControl"></mat-select>
+        </mat-form-field>
+    </form>
+    
+    <div mat-dialog-actions>
+        <button  mat-button>
+            Create
+        </button>
+        <button type="reset" mat-button>
+            Delete
+        </button>
+        <button  mat-button mat-dialog-close="">
+            Exit
+        </button>
+    
+    </div>
+
+</div>
+    
