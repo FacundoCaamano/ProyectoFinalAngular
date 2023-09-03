@@ -8,6 +8,7 @@ import { StudentService } from '../../../students/students/service/studnets.serv
 import { Student } from '../../../students/students/models';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/config/environment';
+import { Store } from '@ngrx/store';
 
 
 @Injectable()
@@ -16,7 +17,7 @@ export class InscriptionEffects {
   constructor(
     private actions$: Actions ,
     private enrollService:EnrollService,
-    private httpClient:HttpClient
+    private store:Store
     ) {}
 
   loadInscriptions$ = createEffect(() => {
@@ -24,7 +25,7 @@ export class InscriptionEffects {
 
       ofType(InscriptionActions.loadInscriptions),
       concatMap(() =>
-        /** An EMPTY observable only emits completion. Replace with your own observable API request */
+ 
         this.enrollService.getInscriptionFromDb().pipe(
           map(data => InscriptionActions.loadInscriptionsSuccess({ data })),
           catchError(error => of(InscriptionActions.loadInscriptionsFailure({ error }))))
@@ -37,7 +38,7 @@ export class InscriptionEffects {
 
       ofType(InscriptionActions.loadInscriptions),
       concatMap(() =>
-        /** An EMPTY observable only emits completion. Replace with your own observable API request */
+       
         this.enrollService.getStudentsOptions().pipe(
           map(data => InscriptionActions.loadStudentsOptionsSuccess({ data })),
           catchError(error => of(InscriptionActions.loadStudentsOptionFailure({ error }))))
@@ -50,7 +51,7 @@ export class InscriptionEffects {
 
       ofType(InscriptionActions.loadInscriptions),
       concatMap(() =>
-        /** An EMPTY observable only emits completion. Replace with your own observable API request */
+   
         this.enrollService.getCoursesOptions().pipe(
           map(data => InscriptionActions.loadCourseOptionsSuccess({ data })),
           catchError(error => of(InscriptionActions.loadCourseOptionFailure({ error }))))
@@ -58,8 +59,27 @@ export class InscriptionEffects {
     );
   });
 
+  enroll$ = createEffect(() => {
+    return this.actions$.pipe(
 
+      ofType(InscriptionActions.enroll),
+      concatMap((action) =>
+       
+        this.enrollService.createEnroll(action.payload).pipe(
+          map(data => InscriptionActions.enrollSuccess({ data })),
+          catchError(error => of(InscriptionActions.enrollFailure({ error }))))
+      )
+    );
+  });
 
+  enrollSuccess$ = createEffect(() => {
+    return this.actions$.pipe(
+
+      ofType(InscriptionActions.enrollSuccess),
+      map(()=>this.store.dispatch(InscriptionActions.loadInscriptions()))
+     
+    );
+  } ,{dispatch:false});
  
 
     

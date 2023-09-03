@@ -11,3 +11,8 @@ export interface InscriptionStudentCourse   extends Inscription{
     course: Courses,
     student:Student,
 }
+
+export interface enroll {
+    courseId:number | null,
+    studentId:number | null
+}

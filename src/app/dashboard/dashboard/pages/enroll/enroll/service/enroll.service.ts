@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { InscriptionStudentCourse } from '../models';
+import { Inscription, InscriptionStudentCourse, enroll } from '../models';
 import { environment } from 'src/config/environment';
 import { Student } from '../../../students/students/models';
 import { Courses } from '../../../courses/courses/models';
@@ -23,5 +23,9 @@ export class EnrollService {
 
   getCoursesOptions():Observable<Array<Courses>>{
     return this.httpClient.get<Array<Courses>>(environment.API_URL + '/courses')
+  }
+
+  createEnroll(payload:enroll):Observable<Inscription>{
+    return this.httpClient.post<Inscription>(environment.API_URL + '/inscription', payload)
   }
 }

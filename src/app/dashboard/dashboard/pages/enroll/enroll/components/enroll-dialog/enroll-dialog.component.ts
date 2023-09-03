@@ -33,4 +33,13 @@ export class EnrollDialogComponent implements OnInit {
     this.store.dispatch(InscriptionActions.loadStudentsOptions())
     this.store.dispatch(InscriptionActions.loadCourseOptions())
   }
+
+  onSubmit():void{
+    if(this.inscriptionForm.invalid){
+      this.inscriptionForm.markAllAsTouched()
+    }else{
+      console.log(this.inscriptionForm.getRawValue());
+      this.store.dispatch(InscriptionActions.enroll({payload: this.inscriptionForm.getRawValue()}))
+    }
+  }
 }

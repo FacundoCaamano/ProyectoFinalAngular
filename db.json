@@ -212,12 +212,26 @@
       "name": "PHP"
     }
   ],
-  "inscription":[
+  "inscription": [
     {
-      "id":1,
-      "courseId":2,
+      "id": 1,
+      "courseId": 2,
       "studentId": 53
-      
+    },
+    {
+      "courseId": 3,
+      "studentId": 5,
+      "id": 2
+    },
+    {
+      "courseId": 2,
+      "studentId": 2,
+      "id": 3
+    },
+    {
+      "courseId": 3,
+      "studentId": 2,
+      "id": 4
     }
   ]
 }

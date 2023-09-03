@@ -1,5 +1,5 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { InscriptionStudentCourse } from '../models';
+import { Inscription, InscriptionStudentCourse, enroll } from '../models';
 import { Student } from '../../../students/students/models';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Courses } from '../../../courses/courses/models';
@@ -18,5 +18,9 @@ export const InscriptionActions = createActionGroup({
     'Load Course Options': emptyProps(),
     'Load Course Options Success': props<{data:Array<Courses>}>(),
     'Load Course Option Failure': props<{ error: HttpErrorResponse }>(),
+
+    'enroll' : props<{payload: enroll}>(),
+    'enroll success': props<{ data: Inscription}>(),
+    'enroll failure': props<{error: HttpErrorResponse}>()
   }
 });
