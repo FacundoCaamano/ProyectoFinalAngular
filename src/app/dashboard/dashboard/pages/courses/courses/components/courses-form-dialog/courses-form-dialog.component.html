@@ -1,4 +1,9 @@
-<h1 mat-dialog-title>Course</h1>
+<h1 mat-dialog-title>{{
+    editingCourse
+      ? "Editing to " + editingCourse.name 
+      : "Create Course"
+  }}
+</h1>
 <div mat-dialog-content>
 
     <form [formGroup]="coursesForm">
@@ -33,10 +38,14 @@
         </pre>
     </div>
    
-   
-    <div mat-dialog-actions>
+
+    <div mat-dialog-actions>    
         <button mat-button (click)="onSubmit()">
-            Create
+            {{
+                editingCourse
+                  ? "Save " 
+                  : "Create"
+              }}
         </button>
         <button type="reset" mat-button>
             Delete

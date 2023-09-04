@@ -64,4 +64,11 @@ export class CourseService {
         ,
       })
     }
+
+    getById(id:number):Observable<Courses | undefined>{
+      this.loadCourses()
+      return this.courses$.pipe(
+        map((course) => course.find((c) => c.id === id))
+        )
+    }
   }

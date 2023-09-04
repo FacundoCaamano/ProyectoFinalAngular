@@ -11,6 +11,8 @@ import { adminGuard } from "../core/guards/admin.guard";
 import { EnrollComponent } from "./dashboard/pages/enroll/enroll/enroll.component";
 import { HomeComponent } from "./dashboard/home/home.component";
 import { TeacherDetailComponent } from "./dashboard/pages/teachers/teachers/pages/teacher-detail/teacher-detail.component";
+import { CourseDetailComponent } from "./dashboard/pages/courses/courses/pages/course-detail/course-detail.component";
+import { StudentDetailComponent } from "./dashboard/pages/students/students/pages/student-detail/student-detail.component";
 
 
 @NgModule({
@@ -23,6 +25,10 @@ import { TeacherDetailComponent } from "./dashboard/pages/teachers/teachers/page
                     {
                         path:'courses',
                         component:CoursesComponent
+                    },
+                    {
+                        path:'courses/:id',
+                        component:CourseDetailComponent
                     },
                     {
                         path:'teachers',
@@ -47,6 +53,10 @@ import { TeacherDetailComponent } from "./dashboard/pages/teachers/teachers/page
                     {
                         path:'students',
                         component:StudentsComponent
+                    },
+                    {
+                        path:'students/:id',
+                        component:StudentDetailComponent
                     },
                     {
                         path:'users',

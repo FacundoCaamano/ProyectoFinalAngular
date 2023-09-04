@@ -26,20 +26,11 @@
       "role": "ADMIN",
       "token": "9yEPYEQOHNXQE1SxoplO",
       "id": 5
-    },
-    {
-      "name": "asasas",
-      "surname": "saasas",
-      "email": "saas@saas",
-      "password": "sasasa",
-      "role": "USER",
-      "token": "RaY3n35LyXbOO3nM8vqK",
-      "id": 6
     }
   ],
   "teachers": [
     {
-      "name": "Lucass",
+      "name": "Lucas",
       "surname": "Pavan",
       "course": "angular",
       "id": 1
@@ -85,7 +76,7 @@
     {
       "name": "Angular",
       "duration": "3 month",
-      "teacher": "jose",
+      "teacher": "josue",
       "id": 1
     },
     {
@@ -158,7 +149,6 @@
       "surname": "Johnson",
       "course": "Java",
       "id": 4
-      
     },
     {
       "name": "Carlos",
@@ -180,7 +170,6 @@
       "surname": "Smith",
       "course": "Java",
       "id": 7
-     
     },
     {
       "id": 53,
