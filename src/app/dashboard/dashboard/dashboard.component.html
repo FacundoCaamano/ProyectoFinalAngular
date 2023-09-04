@@ -10,15 +10,24 @@
       </button>
       <div class="toolBar">
         <button appFonTitle routerLink="/dashboard" mat-flat-button color="primary"> ProAcademy</button>
-        <p *ngIf="authUser$ | async; let authUser ">
-          {{ authUser?.name }} {{ authUser?.surname }}
-        </p>
-        
+        <div class="contenedorRol">
+          <p *ngIf="authUser$ | async; let authUser ">
+            {{ authUser?.name }} {{ authUser?.surname }}
+          </p>
+          <div class="rol">
+            Role
+            <h4 *ngIf="authUser$ | async; let authUser "class="tool-tip">
+              {{authUser?.role}}
+            </h4>
+            <mat-icon class="iconoRols">
+              supervised_user_circle
+            </mat-icon>
+          </div>
+        </div>
       </div>
     </mat-toolbar>
     <main class="home">
-      <router-outlet></router-outlet>
-      
+      <router-outlet></router-outlet>  
     </main>
   </div>
 </mat-drawer-container>

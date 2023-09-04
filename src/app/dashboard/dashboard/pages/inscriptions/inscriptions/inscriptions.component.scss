@@ -1,7 +1,14 @@
 .tabla{
+    margin-top: 5%;
     display: flex;
     justify-content: center;
     div{
      width: 60%;
     }
  }
+
+ .subTitulo{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+  }

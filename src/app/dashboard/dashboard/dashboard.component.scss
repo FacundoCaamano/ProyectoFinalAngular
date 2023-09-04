@@ -37,3 +37,27 @@ button:hover{
   transition: transform 0.3s ease;
 }
 
+.tool-tip{
+  position: absolute;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(146, 46, 84);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.rol:hover{
+  .tool-tip{
+    opacity: 1;
+  }
+}
+.iconoRole{
+ margin: 0;
+ padding: 0;
+}
+
+.contenedorRol{
+  display: flex;
+  gap: 20px;
+}
