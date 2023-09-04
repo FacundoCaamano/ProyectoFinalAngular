@@ -66,4 +66,12 @@ export class TeachersService {
       }
     })
   }
+
+  
+  getById(id:number):Observable<Teachers | undefined>{
+    this.loadTeacher()
+    return this.teachers$.pipe(
+      map((teacher) => teacher.find((t) => t.id ===id))
+      )
+  }
 }

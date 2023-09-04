@@ -4,6 +4,8 @@ import { TeachersComponent } from './teachers/teachers.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TeacherFormDialogComponent } from './teachers/components/teacher-form-dialog/teacher-form-dialog.component';
 import { TeacherTableComponent } from './teachers/components/teacher-table/teacher-table.component';
+import { TeacherDetailComponent } from './teachers/pages/teacher-detail/teacher-detail.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -12,11 +14,13 @@ import { TeacherTableComponent } from './teachers/components/teacher-table/teach
   declarations: [
     TeachersComponent,
     TeacherFormDialogComponent,
-    TeacherTableComponent
+    TeacherTableComponent,
+    TeacherDetailComponent
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   exports:[
     TeachersComponent
