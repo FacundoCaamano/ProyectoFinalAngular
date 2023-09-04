@@ -4,6 +4,7 @@ import { UserFormDalogComponent } from './components/user-form-dalog/user-form-d
 import { Observable } from 'rxjs';
 import { Users } from './models';
 import { UserService } from './service/user.service';
+import { NotifierService } from 'src/app/core/service/notifier.service';
 
 
 
@@ -19,15 +20,14 @@ export class UsersComponent {
 
   constructor(
     private matDialog: MatDialog,
-    private usersService: UserService
+    private usersService: UserService,
+    private notificationService:NotifierService
   ){
     this.usersService.loadUser()
     this.users = this.usersService.getUsers()
   }
   
-  onCreateUser():void{
-    console.log('click');
-    
+  onCreateUser():void{    
     this.matDialog.open(UserFormDalogComponent)
 
     .afterClosed().subscribe({ 
@@ -51,6 +51,7 @@ export class UsersComponent {
     if(confirm(`¿Está seguro de eliminar a ${userToDelete.name}?`)){
       this.usersService.deleteById(userToDelete.id)
     }
+    this.notificationService.showNotification('User eliminated!');
   }
 
   onEditUser(userToEdit:Users){

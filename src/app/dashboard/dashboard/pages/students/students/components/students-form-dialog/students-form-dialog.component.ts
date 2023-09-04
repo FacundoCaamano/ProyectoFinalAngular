@@ -5,6 +5,7 @@ import { Student } from '../../models';
 import { CourseService } from '../../../../courses/courses/service/courses.service';
 import { Observable } from 'rxjs';
 import { Courses } from '../../../../courses/courses/models';
+import { NotifierService } from 'src/app/core/service/notifier.service';
 
 @Component({
   selector: 'app-students-form-dialog',
@@ -32,6 +33,7 @@ export class StudentsFormDialogComponent {
   constructor(
     private dialogRef: MatDialogRef<StudentsFormDialogComponent>,
     private courseService:CourseService,
+    private notificationService:NotifierService,
     @Inject(MAT_DIALOG_DATA) private data?:Student
   ){
     this.courseService.loadCourses()
@@ -52,7 +54,7 @@ export class StudentsFormDialogComponent {
     if(this.studentForm.invalid){
       this.studentForm.markAllAsTouched()
     }else{
-      alert('Updated information')
+      this.notificationService.showNotification('updated student list!');
       this.dialogRef.close(this.studentForm.value)
     }
   }

@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CoursesFormDialogComponent } from './components/courses-form-dialog/courses-form-dialog.component';
 import { Store } from '@ngrx/store';
 import { selectAdmin } from 'src/app/store/auth/auth.selectors';
+import { NotifierService } from 'src/app/core/service/notifier.service';
 
 const idRandom = Math.random() * 100
 const idCourse=Math.round(idRandom)
@@ -23,7 +24,8 @@ export class CoursesComponent {
   constructor(
     private coursesService: CourseService,
     private matDialog: MatDialog,
-    private store:Store
+    private store:Store,
+    private notificationService:NotifierService
   ){
     this.coursesService.loadCourses()
     this.courses = this.coursesService.getCourses()
@@ -51,6 +53,7 @@ export class CoursesComponent {
   onDeleteCourse(courseToDelete:Courses): void{
     if(confirm(`¿Está seguro de eliminar a ${courseToDelete.name}?`)){
       this.coursesService.deleteById(courseToDelete.id)
+      this.notificationService.showNotification('course eliminated!');
     }
   }
   onEditCourse(courseToEdit:Courses){

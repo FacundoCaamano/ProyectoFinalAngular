@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Users } from '../../models';
+import { NotifierService } from 'src/app/core/service/notifier.service';
 
 
 
@@ -44,6 +45,7 @@ export class UserFormDalogComponent {
   })
 
   constructor(private diaLogRef: MatDialogRef<UserFormDalogComponent>,
+    private notificationService:NotifierService,
     @Inject(MAT_DIALOG_DATA) private data?: Users,
     ){
       if(this.data){
@@ -68,9 +70,10 @@ export class UserFormDalogComponent {
         if(this.editingUser){
           payload['token'] = this.editingUser.token
         }
-        alert('Updated information')
+        this.notificationService.showNotification('updated list of users!')
         this.diaLogRef.close(payload)
       }
+
     
   } 
 }

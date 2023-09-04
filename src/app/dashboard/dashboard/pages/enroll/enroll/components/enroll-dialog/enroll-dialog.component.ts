@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { Student } from '../../../../students/students/models';
 import { selectCourseOptions, selectStudentsOptions } from '../../store/inscription.selectors';
 import { Courses } from '../../../../courses/courses/models';
+import { NotifierService } from 'src/app/core/service/notifier.service';
 
 @Component({
   selector: 'app-enroll-dialog',
@@ -25,7 +26,7 @@ export class EnrollDialogComponent implements OnInit {
   studentsOptions$:Observable<Array<Student>>
   courseOptions$:Observable<Array<Courses>>
 
-  constructor(private store:Store){
+  constructor(private store:Store, private notifierService:NotifierService){
     this.studentsOptions$= this.store.select(selectStudentsOptions)
     this.courseOptions$ = this.store.select(selectCourseOptions)
   }
@@ -39,6 +40,7 @@ export class EnrollDialogComponent implements OnInit {
       this.inscriptionForm.markAllAsTouched()
     }else{
       this.store.dispatch(InscriptionActions.enroll({payload: this.inscriptionForm.getRawValue()}))
+      this.notifierService.showNotification('successful registration!!')
     }
   }
 }

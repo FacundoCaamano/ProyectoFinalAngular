@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Teachers } from './models';
 import { Observable } from 'rxjs';
 import { TeacherFormDialogComponent } from './components/teacher-form-dialog/teacher-form-dialog.component';
+import { NotifierService } from 'src/app/core/service/notifier.service';
 
 @Component({
   selector: 'app-teachers',
@@ -16,7 +17,8 @@ export class TeachersComponent {
 
   constructor(
     private teacherService:TeachersService,
-    private matDialog: MatDialog
+    private matDialog: MatDialog,
+    private notificationService:NotifierService
   ){
     this.teacherService.loadTeacher()
     this.teacher = this.teacherService.getTeacher()
@@ -43,6 +45,7 @@ export class TeachersComponent {
     if(confirm(`¿Está seguro de eliminar a ${deleteTeacher.name}?`)){
       this.teacherService.deleteTeacher(deleteTeacher.id)
     }
+    this.notificationService.showNotification('Teacher eliminated!');
   }
 
   onEditTeacher(teacherEdit:Teachers){

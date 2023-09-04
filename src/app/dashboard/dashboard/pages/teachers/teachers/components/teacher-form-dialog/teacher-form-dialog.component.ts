@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Teachers } from '../../models';
+import { NotifierService } from 'src/app/core/service/notifier.service';
 
 @Component({
   selector: 'app-teacher-form-dialog',
@@ -24,6 +25,7 @@ export class TeacherFormDialogComponent {
   
   constructor(
     private dialogRef: MatDialogRef<TeacherFormDialogComponent>,
+    private notifierService:NotifierService,
     @Inject(MAT_DIALOG_DATA) private data?:Teachers
   ){
     if(this.data){
@@ -38,7 +40,7 @@ export class TeacherFormDialogComponent {
     if(this.teacherForm.invalid){
       this.teacherForm.markAllAsTouched()
     }else{
-      alert('Updated information')
+      this.notifierService.showNotification('Teacher created!')
       this.dialogRef.close(this.teacherForm.value)
     }
   }

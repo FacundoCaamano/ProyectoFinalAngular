@@ -64,12 +64,6 @@
       "name": "Sophie",
       "surname": "Davis",
       "course": "Python"
-    },
-    {
-      "id": 1693619653759,
-      "name": "sasa",
-      "surname": "saas",
-      "course": "saas"
     }
   ],
   "courses": [
@@ -172,11 +166,11 @@
       "id": 7
     },
     {
-      "id": 53,
       "name": "Facundo",
+      "email": "facuperez@gmail.com",
       "surname": "Perez",
       "course": "unregistered",
-      "email": "facuperez@gmail.com"
+      "id": 53
     }
   ],
   "inscriptions": [
@@ -226,6 +220,11 @@
       "courseId": 1,
       "studentId": 2,
       "id": 5
+    },
+    {
+      "courseId": 66,
+      "studentId": 53,
+      "id": 6
     }
   ]
 }
