@@ -14,7 +14,7 @@
           <p *ngIf="authUser$ | async; let authUser ">
             {{ authUser?.name }} {{ authUser?.surname }}
           </p>
-          <div class="rol">
+          <button mat-flat-button color="primary" class="rol">
             Role
             <h4 *ngIf="authUser$ | async; let authUser "class="tool-tip">
               {{authUser?.role}}
@@ -22,7 +22,7 @@
             <mat-icon class="iconoRols">
               supervised_user_circle
             </mat-icon>
-          </div>
+          </button>
         </div>
       </div>
     </mat-toolbar>
