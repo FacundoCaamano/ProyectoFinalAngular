@@ -221,6 +221,11 @@
       "courseId": 3,
       "studentId": 2,
       "id": 4
+    },
+    {
+      "courseId": 1,
+      "studentId": 2,
+      "id": 5
     }
   ]
 }
