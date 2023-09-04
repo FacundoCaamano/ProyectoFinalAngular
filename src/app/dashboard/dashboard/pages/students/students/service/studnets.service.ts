@@ -65,4 +65,11 @@ export class StudentService{
       return this.httpClient.get<Array<Student>>(environment.API_URL + `/students?course=${course}`)
     }  
 
+    getById(id:number):Observable<Student | undefined>{
+      this.loadStudents()
+      return this.student$.pipe(
+        map((student) => student.find((s) => s.id ===id))
+        )
+    }
+
 }

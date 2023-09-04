@@ -1,0 +1,28 @@
+<button class="m-5"  mat-flat-button color="accent" routerLink="..">
+    back
+</button>
+<div class="m-5" *ngIf="student">
+    <h2>
+        Detail
+    </h2>
+    <hr>
+    <h2>
+        ID: {{student.id}}
+    </h2>
+    <hr>
+    <h2>
+        NAME: {{student.name}}
+    </h2>
+    <hr>
+    <h2>
+        SURNAME: {{student.surname}}
+    </h2>
+    <hr>
+    <h2>
+        Course: {{student.course}}
+    </h2>
+    <hr>
+</div>
+<div class="m-5"  *ngIf="!student">
+    <p>User not found.</p>
+</div>

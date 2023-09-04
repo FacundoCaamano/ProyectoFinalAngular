@@ -5,18 +5,22 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { StudentsFormDialogComponent } from './students/components/students-form-dialog/students-form-dialog.component';
 import { StudentsTableComponent } from './students/components/students-table/students-table.component';
 import {MatSelectModule} from '@angular/material/select';
+import { StudentDetailComponent } from './students/pages/student-detail/student-detail.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
     StudentsComponent,
     StudentsFormDialogComponent,
-    StudentsTableComponent
+    StudentsTableComponent,
+    StudentDetailComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    MatSelectModule
+    MatSelectModule,
+    RouterModule
   ],
   exports:[
     StudentsComponent,
