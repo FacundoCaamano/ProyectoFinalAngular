@@ -23,7 +23,7 @@ export class DashboardComponent {
 
   public authUser$: Observable<Users | null>;
 
-  constructor(private authService: AuthService , private store:Store) {
+  constructor(private store:Store) {
     this.authUser$ = this.store.select(selectAuthUser)
   }
 }

@@ -83,7 +83,7 @@
   ],
   "courses": [
     {
-      "name": "Angular2",
+      "name": "Angular",
       "duration": "3 month",
       "teacher": "jose",
       "id": 1
@@ -126,13 +126,13 @@
     },
     {
       "id": 8,
-      "name": "Web Design",
+      "name": "WebDesign",
       "duration": "2 months",
       "teacher": "Eva"
     },
     {
       "id": 9,
-      "name": "Database Management",
+      "name": "DatabaseManagement",
       "duration": "3 months",
       "teacher": "Robert"
     }
@@ -142,14 +142,14 @@
       "name": "Ana",
       "email": "anagarcia@outlook.com",
       "surname": "García",
-      "course": "Angular2",
+      "course": "Angular",
       "id": 2
     },
     {
       "name": "John",
       "email": "smitjh@yahoo.com",
       "surname": "Smith",
-      "course": "Angular2",
+      "course": "Angular",
       "id": 3
     },
     {
@@ -157,14 +157,14 @@
       "email": "EmiJon@yahoo.com",
       "surname": "Johnson",
       "course": "Java",
-      "id": 4,
-      "inscriptionId": 1
+      "id": 4
+      
     },
     {
       "name": "Carlos",
       "email": "lop@email.com",
       "surname": "López",
-      "course": "Angular2",
+      "course": "Angular",
       "id": 5
     },
     {
@@ -179,8 +179,8 @@
       "email": "jessica@example.com",
       "surname": "Smith",
       "course": "Java",
-      "id": 7,
-      "inscriptionId": 1
+      "id": 7
+     
     },
     {
       "id": 53,

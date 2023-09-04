@@ -9,12 +9,17 @@ import { InscriptionsComponent } from "./dashboard/pages/inscriptions/inscriptio
 import { InscriptionsDetailComponent } from "./dashboard/pages/inscriptions/inscriptions/pages/inscriptions-detail/inscriptions-detail.component";
 import { adminGuard } from "../core/guards/admin.guard";
 import { EnrollComponent } from "./dashboard/pages/enroll/enroll/enroll.component";
+import { HomeComponent } from "./dashboard/home/home.component";
 
 
 @NgModule({
     imports:[
         RouterModule.forChild([
-            {
+                    {
+                        path:'',
+                        component:HomeComponent
+                    },
+                    {
                         path:'courses',
                         component:CoursesComponent
                     },

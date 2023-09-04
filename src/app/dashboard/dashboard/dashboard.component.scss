@@ -22,10 +22,18 @@
   
   h1{
     margin: 0;
+    font-family: monospace;
   }
   p{
     margin: 0;
   }
   
+}
+button{
+  transition: transform 0.3s ease;
+}
+button:hover{
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 

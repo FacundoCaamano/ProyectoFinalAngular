@@ -38,7 +38,6 @@ export class EnrollDialogComponent implements OnInit {
     if(this.inscriptionForm.invalid){
       this.inscriptionForm.markAllAsTouched()
     }else{
-      console.log(this.inscriptionForm.getRawValue());
       this.store.dispatch(InscriptionActions.enroll({payload: this.inscriptionForm.getRawValue()}))
     }
   }
