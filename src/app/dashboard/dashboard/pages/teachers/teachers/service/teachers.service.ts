@@ -11,14 +11,14 @@ import { environment } from 'src/config/environment';
   providedIn: 'root'
 })
 export class TeachersService {
-
+  private baseUrl = environment.API_URL
   private _teachers$ = new BehaviorSubject<Array<Teachers>>([])
   private teachers$ = this._teachers$.asObservable()
 
   constructor(private httpClient:HttpClient) { }
 
   loadTeacher(){
-    this.httpClient.get<Array<Teachers>>(environment.API_URL + "/teachers").subscribe({
+    this.httpClient.get<Array<Teachers>>(this.baseUrl + "teachers").subscribe({
       next:(response) => {
         this._teachers$.next(response)
       }
@@ -30,7 +30,7 @@ export class TeachersService {
   }
 
   createTeacher(teacher:Teachers){
-    this.httpClient.post<Teachers>(environment.API_URL + "/teachers", teacher)
+    this.httpClient.post<Teachers>(this.baseUrl + "teachers", teacher)
     .pipe(
       mergeMap((teacherCreate) => this._teachers$.pipe(take(1),
       map(
@@ -45,7 +45,7 @@ export class TeachersService {
   }
 
   deleteTeacher(id:number){
-    this.httpClient.delete(environment.API_URL + "/teachers/" + id)
+    this.httpClient.delete(this.baseUrl + "teachers/" + id)
     .pipe(
       take(1),
       mergeMap((responseTeacherDelete)=>
@@ -60,7 +60,7 @@ export class TeachersService {
   }
 
   updateTeacher(id: number, teacherUpdated:Teachers){
-    this.httpClient.put(environment.API_URL + "/teachers/" + id , teacherUpdated).subscribe({
+    this.httpClient.put(this.baseUrl + "teachers/" + id , teacherUpdated).subscribe({
       next: () =>{
         this.loadTeacher()
       }

@@ -27,14 +27,15 @@
           <button [routerLink]="element.id" mat-icon-button color="secondary">
             <mat-icon>visibility</mat-icon>
           </button>
-          <button (click)="editUser.emit(element)" mat-icon-button color="secondary">
+          <button *ngIf="element.id !== 1" (click)="editUser.emit(element)" mat-icon-button color="secondary">
             <mat-icon>tune</mat-icon>
           </button>
-          <button (click)="deleteUser.emit(element)" mat-icon-button color="warn">
+          <button  *ngIf="element.id !== 1" (click)="deleteUser.emit(element)" mat-icon-button color="warn">
             <mat-icon>
               delete
             </mat-icon>      
           </button>
+          
         </td>
   </ng-container>
   

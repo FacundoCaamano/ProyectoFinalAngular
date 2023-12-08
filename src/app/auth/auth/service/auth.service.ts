@@ -11,6 +11,7 @@ import { AuthActions } from "src/app/store/auth/auth.actions";
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   
+  private baseUrl = "https://api-curso-angular.vercel.app/api/";
 
   constructor(
      private router: Router,
@@ -20,7 +21,7 @@ export class AuthService {
 
 
   isAuthenticated(): Observable<boolean> {
-    return this.httpClient.get<Array<Users>>(environment.API_URL + '/users',{
+    return this.httpClient.get<Array<Users>>("this.baseUrl" + "users",{
       params:{
         token:localStorage.getItem('token') || ''
       }
@@ -37,7 +38,7 @@ export class AuthService {
   }
 
   login(payload: LoginPayload): void {
-    this.httpClient.get<Array<Users>>(environment.API_URL + '/users',{
+    this.httpClient.get<Array<Users>>(this.baseUrl + "users",{
       params:{
         email:payload.email || '',
         password:payload.password || ''
@@ -45,16 +46,12 @@ export class AuthService {
     }).subscribe({
       next:(response)=>{
         if(response.length){
-
           const authUser= response[0]
-
-          
           this.store.dispatch(AuthActions.setAuthUser({data: authUser}))
           this.router.navigate(['/dashboard'])
           localStorage.setItem('token', authUser.token)
         }else{
           alert('No identificado')
-          
         }
       }
     })

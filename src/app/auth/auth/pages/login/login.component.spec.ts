@@ -19,7 +19,7 @@ describe('LoginComponent',()=>{
     })
         it('Debe ser invalido el formulario si los campos estan vacios',()=>{
             component.emailControl.setValue(''),
-            component.passwordControl.setValue(''),
+            
 
             expect(component.loginForm.invalid).toBe(true)
         })

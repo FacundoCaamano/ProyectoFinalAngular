@@ -5,11 +5,11 @@
     <mat-card-content >
       <form class="loginContenedor">
         <mat-form-field>
-          <input [formControl]="emailControl" matInput placeholder="Email" name="email">
+          <input readonly [formControl]="emailControl" matInput placeholder="Email" name="email">
           <mat-error>CAMPO INVALIDO</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input [formControl]="passwordControl" matInput placeholder="Password"  name="password" type="password">
+          <input readonly [formControl]="passwordControl" matInput placeholder="Password"  name="password" type="password">
         </mat-form-field>
       </form>
       <button mat-raised-button color="primary" (click)="login()">Login</button>

@@ -8,13 +8,14 @@ import { environment } from "src/config/environment";
 })
 
 export class StudentService{
+    private baseUrl = environment.API_URL
     public _student$ = new BehaviorSubject<Array<Student>>([])
     public student$ = this._student$.asObservable()
 
     constructor(private httpClient:HttpClient){}
 
     loadStudents():void{
-        this.httpClient.get<Array<Student>>(environment.API_URL + '/students').subscribe({
+        this.httpClient.get<Array<Student>>(this.baseUrl + "students").subscribe({
           next:(response) =>{
             this._student$.next(response)
           }
@@ -26,7 +27,7 @@ export class StudentService{
       }
 
     createStudent(student:Student){
-        this.httpClient.post(environment.API_URL + '/students/', student)
+        this.httpClient.post(this.baseUrl + "students", student)
         .pipe(
             mergeMap(
                 (studentData)=> this._student$.pipe(
@@ -43,13 +44,13 @@ export class StudentService{
     }
 
     updateById(id:number , studentUpdated:Student):void{
-        this.httpClient.put(environment.API_URL+"/students/" + id,studentUpdated).subscribe({
+        this.httpClient.put(this.baseUrl + "students/" + id,studentUpdated).subscribe({
             next:()=> this.loadStudents()
         })
     }
 
     deleteById(id:number):void{
-        this.httpClient.delete(environment.API_URL + "/students/" + id)
+        this.httpClient.delete(this.baseUrl + "students/" + id)
         .pipe(
           mergeMap((responseStudentDelete)=>
             this._student$.pipe(take(1), map((arrayACtual) => arrayACtual.filter((c) => c.id !== id))

@@ -32,12 +32,12 @@
             <button [routerLink]="element.id" mat-icon-button color="secondary">
               <mat-icon>visibility</mat-icon>
             </button>
-             <button *ngIf="(isAdmin | async)"  mat-icon-button color="secondary" (click)="editCourse.emit(element)">
+             <button   mat-icon-button color="secondary" (click)="editCourse.emit(element)">
                <mat-icon>
                 tune
               </mat-icon>
              </button>
-             <button  *ngIf="(isAdmin | async)"  mat-icon-button color="warn" (click)="deleteCourse.emit(element)">
+             <button    mat-icon-button color="warn" (click)="deleteCourse.emit(element)">
                <mat-icon>
                  delete
                </mat-icon>      

@@ -60,13 +60,13 @@ import { StudentDetailComponent } from "./dashboard/pages/students/students/page
                     },
                     {
                         path:'users',
-                        canActivate:[adminGuard],
+                        
                         component:UsersComponent,
                         
                     },
                     {
                         path:'users/:id',
-                        canActivate:[adminGuard],
+                    
                         component: UsersDetailComponent
                     },
         ])

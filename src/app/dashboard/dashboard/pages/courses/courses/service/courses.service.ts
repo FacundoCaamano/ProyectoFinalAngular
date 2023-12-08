@@ -12,14 +12,14 @@ import { environment } from 'src/config/environment';
 })
 export class CourseService {
 
-  
+  private baseUrl = environment.API_URL
   private _courses$ = new BehaviorSubject<Array<Courses>>([])
   private courses$ = this._courses$.asObservable()
 
   constructor(private httpClient:HttpClient) { }
 
   loadCourses():void{
-    this.httpClient.get<Array<Courses>>(environment.API_URL + '/courses').subscribe({
+    this.httpClient.get<Array<Courses>>(this.baseUrl + "courses").subscribe({
       next:(response) =>{
         this._courses$.next(response)
       }
@@ -30,7 +30,7 @@ export class CourseService {
   }
 
   createCourse(course: Courses):void{
-    this.httpClient.post(environment.API_URL + "/courses", course)
+    this.httpClient.post(this.baseUrl + "courses", course)
     .pipe(
       mergeMap((courseCreate) => this._courses$.pipe(take(1),
       map(
@@ -46,13 +46,13 @@ export class CourseService {
 
   
   updateById(id:number, courseUpdated:Courses):void{
-     this.httpClient.put(environment.API_URL + "/courses/" + id, courseUpdated).subscribe({
+     this.httpClient.put(this.baseUrl + "courses/" + id, courseUpdated).subscribe({
       next:()=> this.loadCourses()
      })
     }
 
     deleteById(id:number):void{
-      this.httpClient.delete(environment.API_URL + "/courses/" + id)
+      this.httpClient.delete(this.baseUrl + "courses/" + id)
       .pipe(
         mergeMap((responseCourseDelete)=>
           this._courses$.pipe(take(1), map((arrayACtual) => arrayACtual.filter((c) => c.id !== id))

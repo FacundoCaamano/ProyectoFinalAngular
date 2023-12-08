@@ -26,6 +26,15 @@
       "role": "ADMIN",
       "token": "9yEPYEQOHNXQE1SxoplO",
       "id": 5
+    },
+    {
+      "name": "asddsa",
+      "surname": "dsasaddas",
+      "email": "dsadas@dsasad",
+      "password": "dasdassda",
+      "role": "USER",
+      "token": "0HDEd1lPQLfPfhPVzs6r",
+      "id": 6
     }
   ],
   "teachers": [
