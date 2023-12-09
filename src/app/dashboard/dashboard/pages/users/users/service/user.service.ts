@@ -60,7 +60,7 @@ export class UserService {
   }
 
   updateById(id:number, userUpdated:UpdateUserData):void{
-    this.httpClient.put(this.baseUrl + "users"+ id, userUpdated).subscribe({
+    this.httpClient.put(this.baseUrl + "users/"+ id, userUpdated).subscribe({
       next:() =>{
         this.loadUser()
         
@@ -69,7 +69,7 @@ export class UserService {
   }
 
   deleteById(id:number):void{
-    this.httpClient.delete(this.baseUrl + "users" + id)
+    this.httpClient.delete(this.baseUrl + "users/" + id)
     .pipe(
       mergeMap((responseUserDelete)=>
         this._users$.pipe(take(1), map((arrayACtual) => arrayACtual.filter((u) => u.id !== id))
