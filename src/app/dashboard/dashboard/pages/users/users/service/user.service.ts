@@ -3,7 +3,7 @@ import { CreateUser, UpdateUserData, Users } from '../models';
 import { BehaviorSubject, Observable, map, mergeMap, of, take } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { generateRandomString } from 'src/app/shared/utils/tokenGenerate';
-import { environment } from 'src/config/environment';
+import { environment } from 'src/config/environmentProd';
 
 
 

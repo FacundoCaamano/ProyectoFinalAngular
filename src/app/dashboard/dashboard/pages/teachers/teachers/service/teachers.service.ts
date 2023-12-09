@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map, mergeMap, of, take } from 'rxjs';
 import { Teachers } from '../models';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/config/environment';
+import { environment } from 'src/config/environmentProd';
 
 
 
