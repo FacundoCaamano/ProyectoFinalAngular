@@ -7,7 +7,7 @@ import { EnrollService } from '../service/enroll.service';
 import { StudentService } from '../../../students/students/service/studnets.service';
 import { Student } from '../../../students/students/models';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/config/environment';
+import { environment } from 'environment';
 import { Store } from '@ngrx/store';
 
 

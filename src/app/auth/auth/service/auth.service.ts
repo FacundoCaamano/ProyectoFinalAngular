@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import { Users } from "src/app/dashboard/dashboard/pages/users/users/models";
 import { LoginPayload } from "../models";
-import { environment } from "src/config/environment";
+import { environment } from "environment";
 import { Store } from "@ngrx/store";
 import { AuthActions } from "src/app/store/auth/auth.actions";
 

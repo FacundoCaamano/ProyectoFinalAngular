@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Inscription, InscriptionStudentCourse, enroll } from '../models';
-import { environment } from 'src/config/environmentProd';
+import { environment } from 'environmentProd';
 import { Student } from '../../../students/students/models';
 import { Courses } from '../../../courses/courses/models';
 
